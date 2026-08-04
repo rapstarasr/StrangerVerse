@@ -223,18 +223,20 @@ function MessageInput({
         </div>
       ) : null}
 
-      <div className="flex items-center gap-3">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
         {!showPreview ? (
           <>
-            <button type="button" onClick={() => setShowEmojiPicker((value) => !value)} className="rounded-full p-2 text-slate-600 transition hover:scale-110 hover:bg-slate-100" title="Emoji" aria-label="Open emoji picker">
-              <Smile className="h-5 w-5" />
-            </button>
-            {showEmojiPicker ? (
-              <div ref={pickerRef} className="absolute bottom-20 left-2 z-50">
-                <EmojiPicker onSelect={addEmoji} />
-              </div>
-            ) : null}
-            <FileAttachment onSelect={onFileSelect} disabled={isRecording || permissionPending} />
+            <div className="flex items-center gap-2">
+              <button type="button" onClick={() => setShowEmojiPicker((value) => !value)} className="rounded-full p-2 text-slate-600 transition hover:scale-110 hover:bg-slate-100" title="Emoji" aria-label="Open emoji picker">
+                <Smile className="h-5 w-5" />
+              </button>
+              {showEmojiPicker ? (
+                <div ref={pickerRef} className="absolute bottom-20 left-2 z-50">
+                  <EmojiPicker onSelect={addEmoji} />
+                </div>
+              ) : null}
+              <FileAttachment onSelect={onFileSelect} disabled={isRecording || permissionPending} />
+            </div>
           </>
         ) : null}
 
@@ -267,9 +269,13 @@ function MessageInput({
           </div>
         ) : !showPreview ? (
           <>
-            <input ref={inputRef} type="text" value={message} onChange={(event) => onChange(event.target.value)} onKeyDown={handleInputKeyDown} placeholder="Type a message..." className="flex-1 rounded-full border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 outline-none placeholder:text-slate-400 focus:border-purple-500 focus:ring-2 focus:ring-purple-100" aria-label="Message input" disabled={isRecording} />
-            <button type="button" onPointerDown={handleHoldStart} onPointerUp={handleHoldEnd} onPointerCancel={handleHoldEnd} onContextMenu={(event) => event.preventDefault()} onKeyDown={handleMicKeyDown} onKeyUp={handleMicKeyUp} className="select-none rounded-full p-2 text-slate-600 transition hover:scale-110 hover:bg-slate-100 active:scale-95 disabled:cursor-not-allowed disabled:opacity-60" title="Hold to record" aria-label={isRecording ? "Stop recording voice message" : "Hold to record voice message"} aria-pressed={isRecording} disabled={permissionPending}><span className="text-xl">🎤</span></button>
-            <button type="button" onClick={handleSend} className="rounded-full bg-purple-600 p-2.5 text-white transition hover:bg-purple-700" aria-label="Send message"><SendHorizontal className="h-4 w-4" /></button>
+            <div className="min-w-0 flex-1">
+              <input ref={inputRef} type="text" value={message} onChange={(event) => onChange(event.target.value)} onKeyDown={handleInputKeyDown} placeholder="Type a message..." className="w-full min-w-0 rounded-full border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 outline-none placeholder:text-slate-400 focus:border-purple-500 focus:ring-2 focus:ring-purple-100" aria-label="Message input" disabled={isRecording} />
+            </div>
+            <div className="flex flex-shrink-0 items-center gap-2">
+              <button type="button" onPointerDown={handleHoldStart} onPointerUp={handleHoldEnd} onPointerCancel={handleHoldEnd} onContextMenu={(event) => event.preventDefault()} onKeyDown={handleMicKeyDown} onKeyUp={handleMicKeyUp} className="select-none rounded-full p-2 text-slate-600 transition hover:scale-110 hover:bg-slate-100 active:scale-95 disabled:cursor-not-allowed disabled:opacity-60" title="Hold to record" aria-label={isRecording ? "Stop recording voice message" : "Hold to record voice message"} aria-pressed={isRecording} disabled={permissionPending}><span className="text-xl">🎤</span></button>
+              <button type="button" onClick={handleSend} className="rounded-full bg-purple-600 p-2.5 text-white transition hover:bg-purple-700" aria-label="Send message"><SendHorizontal className="h-4 w-4" /></button>
+            </div>
           </>
         ) : null}
       </div>

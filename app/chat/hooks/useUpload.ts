@@ -3,8 +3,20 @@
 import { useCallback } from "react";
 import type { UploadedFile } from "../types/chat";
 
-const API_URL =
-  process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+const getApiUrl = () => {
+  const rawUrl = process.env.NEXT_PUBLIC_API_URL?.trim();
+  if (rawUrl) {
+    return rawUrl.replace(/^http:/i, "https:");
+  }
+
+  if (typeof window !== "undefined") {
+    return window.location.origin;
+  }
+
+  return "";
+};
+
+const API_URL = getApiUrl();
 
 export function useUpload() {
   const uploadAttachment = useCallback(

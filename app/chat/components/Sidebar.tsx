@@ -18,7 +18,7 @@ export default function Sidebar({
   onVideoCall,
 }: SidebarProps) {
   return (
-    <aside className="w-72 border-r border-gray-800 bg-gray-950 text-white p-5 flex flex-col">
+    <aside className="w-full max-w-full border-b border-gray-800 bg-gray-950 text-white p-5 flex flex-col md:w-72 md:border-b-0 md:border-r">
 
       <h1 className="text-4xl font-bold text-purple-500">
         StrangerVerse

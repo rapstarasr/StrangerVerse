@@ -4,7 +4,7 @@ const cors = require("cors");
 const path = require("path");
 const { Server } = require("socket.io");
 
-const { PORT, FRONTEND_ORIGIN } = require("./utils/constants");
+const { NODE_ENV, PORT, FRONTEND_ORIGIN } = require("./utils/constants");
 const UploadService = require("./services/uploadService");
 const QueueService = require("./services/queueService");
 const PairService = require("./services/pairService");
@@ -13,13 +13,32 @@ const registerMatchmaking = require("./socket/matchmaking");
 const registerMessageHandlers = require("./socket/message");
 const registerTypingHandlers = require("./socket/typing");
 const registerCallHandlers = require("./socket/call");
+
 const app = express();
-app.use(
-  cors({
-    origin: FRONTEND_ORIGIN,
-    credentials: true,
-  })
-);
+
+const allowedOrigins = [
+  FRONTEND_ORIGIN,
+  "https://www.strangerverse.online",
+  "https://strangerverse.online",
+  "https://www.stranger-verse.vercel.app",
+];
+
+if (NODE_ENV !== "production") {
+  allowedOrigins.push("http://localhost:3000", "http://127.0.0.1:3000");
+}
+
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+
+    return callback(new Error(`CORS origin denied: ${origin}`));
+  },
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 const uploadsDir = path.join(__dirname, "uploads");
@@ -31,7 +50,7 @@ registerUploadRoute(app, uploadService);
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: FRONTEND_ORIGIN,
+    origin: allowedOrigins,
     methods: ["GET", "POST"],
     credentials: true,
   },

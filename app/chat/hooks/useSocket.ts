@@ -63,13 +63,30 @@ export function useSocket(handlers: SocketHandlers = {}) {
     handlersRef.current = handlers;
   }, [handlers]);
 
+  const getSocketUrl = () => {
+    const rawUrl = process.env.NEXT_PUBLIC_SOCKET_URL?.trim();
+    if (rawUrl) {
+      return rawUrl.replace(/^ws:/i, "wss:").replace(/^http:/i, "https:");
+    }
+
+    if (typeof window !== "undefined") {
+      return window.location.origin;
+    }
+
+    return "";
+  };
+
   useEffect(() => {
-    const socket = io(
-      process.env.NEXT_PUBLIC_SOCKET_URL || "http://localhost:5000",
-      {
-        transports: ["websocket"],
-      }
-    );
+    const socketUrl = getSocketUrl();
+    if (!socketUrl) {
+      return;
+    }
+
+    const socket = io(socketUrl, {
+      transports: ["polling", "websocket"],
+      upgrade: true,
+      secure: socketUrl.startsWith("https:") || socketUrl.startsWith("wss:"),
+    });
 
     socketRef.current = socket;
 

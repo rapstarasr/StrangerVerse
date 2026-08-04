@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="StrangerVerse logo">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22d3ee" />
+      <stop offset="50%" stop-color="#a855f7" />
+      <stop offset="100%" stop-color="#f472b6" />
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="48" fill="#050816" />
+  <path d="M80 60c32-24 80-24 112 0 20 15 32 37 32 62 0 34-22 57-48 72-8 4-16 6-24 7-8-3-16-5-24-7-26-15-48-38-48-72 0-25 12-47 32-62Z" fill="url(#g)" />
+  <circle cx="105" cy="120" r="14" fill="#fff" />
+  <circle cx="151" cy="120" r="14" fill="#fff" />
+  <path d="M100 150c5 5 20 5 25 0" stroke="#fff" stroke-width="8" stroke-linecap="round" />
+  <text x="128" y="240" text-anchor="middle" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="28" font-weight="700">SV</text>
+</svg>

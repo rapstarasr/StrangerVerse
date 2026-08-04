@@ -11,7 +11,7 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:3000 to explore the experience.
+Open https://www.strangerverse.online to explore the production experience, or use the local development server at http://localhost:3000.
 
 ## Highlights
 
