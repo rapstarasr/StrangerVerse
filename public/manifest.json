@@ -1,0 +1,9 @@
+{
+  "name": "StrangerVerse",
+  "short_name": "StrangerVerse",
+  "description": "Meet new people in real time with StrangerVerse through anonymous text, voice, and video conversations.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050816",
+  "theme_color": "#050816"
+}

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="StrangerVerse preview">
+  <rect width="1200" height="630" fill="#050816" />
+  <rect x="60" y="60" width="1080" height="510" rx="42" fill="url(#bg)" />
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#111827" />
+      <stop offset="55%" stop-color="#1d4ed8" />
+      <stop offset="100%" stop-color="#9333ea" />
+    </linearGradient>
+  </defs>
+  <circle cx="930" cy="190" r="150" fill="#22d3ee" fill-opacity="0.22" />
+  <circle cx="290" cy="470" r="180" fill="#f472b6" fill-opacity="0.19" />
+  <path d="M270 250c70-78 186-78 246 0 43 57 43 140 0 196-60 78-176 78-246 0-43-56-43-139 0-196Z" fill="#ffffff" fill-opacity="0.12" stroke="#ffffff" stroke-opacity="0.28" />
+  <path d="M310 280h118" stroke="#ffffff" stroke-width="16" stroke-linecap="round" />
+  <path d="M320 330h104" stroke="#ffffff" stroke-width="16" stroke-linecap="round" />
+  <path d="M308 380h120" stroke="#ffffff" stroke-width="16" stroke-linecap="round" />
+  <text x="270" y="480" fill="#f8fafc" font-family="Arial, sans-serif" font-size="56" font-weight="700">StrangerVerse</text>
+  <text x="270" y="535" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="28">Anonymous chat, voice, and video worldwide</text>
+</svg>
