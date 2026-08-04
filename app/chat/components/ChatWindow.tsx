@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { memo, useCallback, useEffect, useRef, useState } from "react";
 import MessageBubble from "./MessageBubble";
@@ -48,10 +48,10 @@ function ChatWindow({
 
   if (isLoading) {
     return (
-      <div className="flex-1 overflow-y-auto bg-gray-50 p-4">
-        <div className="mx-auto flex max-w-3xl flex-col gap-3">
+      <div className="flex-1 overflow-y-auto bg-slate-950 p-4">
+        <div className="mx-auto flex max-w-3xl flex-col gap-4">
           {Array.from({ length: 3 }).map((_, index) => (
-            <div key={index} className="h-16 animate-pulse rounded-[20px] bg-slate-200" />
+            <div key={index} className="h-20 animate-pulse rounded-[28px] bg-slate-800" />
           ))}
         </div>
       </div>
@@ -60,20 +60,20 @@ function ChatWindow({
 
   if (!messages.length) {
     return (
-      <div className="flex flex-1 items-center justify-center bg-gray-50 p-6 text-center">
-        <div className="max-w-sm rounded-[24px] border border-slate-200 bg-white px-6 py-8 shadow-sm">
-          <p className="text-lg font-semibold text-slate-900">{emptyMessage}</p>
-          <p className="mt-2 text-sm text-slate-500">Messages will appear here as soon as the conversation starts.</p>
+      <div className="flex flex-1 items-center justify-center bg-slate-950 p-6 text-center">
+        <div className="max-w-sm rounded-[32px] border border-white/10 bg-slate-900/90 px-6 py-10 shadow-[0_30px_80px_rgba(15,23,42,0.35)] backdrop-blur-sm">
+          <p className="text-lg font-semibold text-white">{emptyMessage}</p>
+          <p className="mt-3 text-sm leading-6 text-slate-400">Connect with a new stranger and watch the conversation come alive in a secure chat space.</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="flex-1 overflow-y-auto bg-gray-50 p-4">
-      <div className="mx-auto flex max-w-3xl flex-col">
-        <div className="mb-4 flex justify-center">
-          <div className="rounded-full bg-white/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-500 shadow-sm">
+    <div className="flex-1 overflow-y-auto bg-slate-950 p-4 pb-[calc(6rem+env(safe-area-inset-bottom))]">
+      <div className="mx-auto flex max-w-3xl flex-col gap-4">
+        <div className="flex justify-center">
+          <div className="rounded-full bg-white/10 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-300 shadow-sm">
             Today
           </div>
         </div>
@@ -87,20 +87,27 @@ function ChatWindow({
               ref={(node) => {
                 messageRefs.current.set(message.id, node);
               }}
-              className={`transition-all duration-300 ${highlightedMessageId === message.id ? "rounded-[24px] ring-2 ring-purple-400 ring-offset-2 ring-offset-gray-50" : ""}`}
+              className={`transition-all duration-300 ${highlightedMessageId === message.id ? "rounded-[24px] ring-2 ring-purple-400 ring-offset-2 ring-offset-slate-950" : ""}`}
             >
-              <MessageBubble message={message} onReply={onReply} onReact={onReact} onQuoteClick={handleQuoteClick} isHighlighted={highlightedMessageId === message.id} canFindOriginal={replyExists} />
+              <MessageBubble
+                message={message}
+                onReply={onReply}
+                onReact={onReact}
+                onQuoteClick={handleQuoteClick}
+                isHighlighted={highlightedMessageId === message.id}
+                canFindOriginal={replyExists}
+              />
             </div>
           );
         })}
 
         {typing ? (
           <div className="mb-4 flex justify-start" aria-live="polite">
-            <div className="rounded-[20px] bg-white px-4 py-3 text-sm text-slate-500 shadow-sm">
-              <span className="inline-flex gap-1">
-                <span className="h-2 w-2 animate-pulse rounded-full bg-slate-400" />
-                <span className="h-2 w-2 animate-pulse rounded-full bg-slate-400 [animation-delay:120ms]" />
-                <span className="h-2 w-2 animate-pulse rounded-full bg-slate-400 [animation-delay:240ms]" />
+            <div className="rounded-[24px] bg-slate-900 px-4 py-3 text-sm text-slate-300 shadow-sm">
+              <span className="inline-flex gap-2">
+                <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-slate-500" />
+                <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-slate-500 [animation-delay:120ms]" />
+                <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-slate-500 [animation-delay:240ms]" />
               </span>
             </div>
           </div>

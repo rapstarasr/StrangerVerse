@@ -204,18 +204,18 @@ function MessageBubble({ message, onReply, onReact, onQuoteClick, isHighlighted 
       <button
         type="button"
         onClick={() => onQuoteClick?.(message.replyTo?.id)}
-        className={`mb-3 w-full rounded-[16px] border px-3 py-2 text-left ${isOutgoing ? "border-white/20 bg-white/10" : "border-slate-200 bg-slate-50"}`}
+        className={`mb-3 w-full rounded-[22px] border px-3 py-3 text-left shadow-sm transition ${isOutgoing ? "border-white/20 bg-white/10" : "border-slate-700 bg-slate-100"}`}
       >
-        <div className={`mb-1 text-[11px] font-semibold uppercase tracking-[0.22em] ${isOutgoing ? "text-white/70" : "text-slate-500"}`}>
+        <div className={`mb-2 text-[11px] font-semibold uppercase tracking-[0.22em] ${isOutgoing ? "text-white/70" : "text-slate-500"}`}>
           {message.replyTo.sender === "you" ? "You" : message.replyTo.sender === "stranger" ? "Stranger" : "System"}
         </div>
-        <div className="flex items-start gap-2">
-          <div className={`mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full ${isOutgoing ? "bg-white/15 text-white" : "bg-white text-slate-700"}`}>
+        <div className="flex items-start gap-3">
+          <div className={`mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-2xl ${isOutgoing ? "bg-white/15 text-white" : "bg-slate-200 text-slate-700"}`}>
             {previewIcon}
           </div>
-          <div className="min-w-0 flex-1">
+          <div className="min-w-0">
             {previewUrl ? (
-              <div className="mb-2 overflow-hidden rounded-xl border border-slate-200 bg-white">
+              <div className="mb-2 overflow-hidden rounded-3xl border border-slate-200 bg-white">
                 <img src={previewUrl} alt="Reply preview" className="h-14 w-full object-cover" />
               </div>
             ) : null}
@@ -231,7 +231,9 @@ function MessageBubble({ message, onReply, onReact, onQuoteClick, isHighlighted 
   if (isSystem) {
     return (
       <div className="mb-4 flex justify-center">
-        <div className="rounded-full bg-slate-200 px-4 py-2 text-sm text-slate-700">{message.text}</div>
+        <div className="rounded-full bg-white/10 px-5 py-2 text-sm text-slate-200 shadow-sm backdrop-blur-sm">
+          {message.text}
+        </div>
       </div>
     );
   }
@@ -248,10 +250,10 @@ function MessageBubble({ message, onReply, onReact, onQuoteClick, isHighlighted 
       onPointerLeave={handlePointerUp}
       onPointerCancel={handlePointerUp}
     >
-      <div className="relative max-w-[min(100%,420px)]">
-        <div className={`rounded-[20px] px-3 py-3 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg ${isOutgoing ? "bg-[#5b3cff] text-white" : "bg-white text-slate-900"} ${isHighlighted ? "ring-2 ring-purple-400 ring-offset-2 ring-offset-gray-50" : ""}`}>
-          <div className="flex items-center justify-end">
-            <button type="button" onClick={handleReplyClick} className={`mb-2 text-[11px] font-semibold uppercase tracking-[0.2em] ${isOutgoing ? "text-white/70" : "text-slate-500"}`}>
+      <div className="relative max-w-[min(100%,440px)]">
+        <div className={`rounded-[28px] px-4 py-4 shadow-[0_18px_60px_rgba(15,23,42,0.12)] transition-all duration-200 hover:-translate-y-0.5 ${isOutgoing ? "bg-gradient-to-br from-fuchsia-600 via-purple-600 to-indigo-600 text-white" : "bg-white text-slate-900"} ${isHighlighted ? "ring-2 ring-purple-400 ring-offset-2 ring-offset-slate-950" : ""}`}>
+          <div className="flex justify-end">
+            <button type="button" onClick={handleReplyClick} className={`mb-2 text-[11px] font-semibold uppercase tracking-[0.2em] ${isOutgoing ? "text-white/80" : "text-slate-500"}`}>
               Reply
             </button>
           </div>
@@ -259,7 +261,7 @@ function MessageBubble({ message, onReply, onReact, onQuoteClick, isHighlighted 
           {renderBody()}
         </div>
         {showReactions ? (
-          <div style={reactionPopupStyle} className="absolute -top-12 left-0 z-20 flex items-center gap-2 rounded-full border border-slate-200 bg-white/95 px-2 py-2 shadow-lg backdrop-blur-sm transition-all duration-200">
+          <div style={reactionPopupStyle} className="absolute -top-14 left-0 z-20 flex items-center gap-2 rounded-full border border-slate-700 bg-slate-950/95 px-2 py-2 text-white shadow-lg backdrop-blur-sm transition-all duration-200">
             {reactionEmojis.map((emoji) => (
               <button key={emoji} type="button" onClick={() => handleReactionSelect(emoji)} className="rounded-full px-2 py-1 text-lg transition hover:-translate-y-0.5 hover:scale-110">
                 {emoji}
@@ -275,7 +277,7 @@ function MessageBubble({ message, onReply, onReact, onQuoteClick, isHighlighted 
                 key={reaction.emoji}
                 type="button"
                 onClick={() => handleReactionSelect(reaction.emoji)}
-                className={`flex items-center gap-1 rounded-full px-2.5 py-1 text-sm font-medium transition ${reactedByMe ? "bg-purple-600 text-white" : "bg-slate-200 text-slate-700"}`}
+                className={`flex items-center gap-1 rounded-full px-3 py-1 text-sm font-medium transition ${reactedByMe ? "bg-purple-600 text-white" : "bg-slate-200 text-slate-700"}`}
               >
                 <span>{reaction.emoji}</span>
                 <span>{reaction.users.length}</span>

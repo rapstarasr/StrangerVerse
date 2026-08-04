@@ -1,6 +1,6 @@
 'use client';
 
-import type { Metadata } from "next";
+import { useState } from "react";
 import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
 import ChatWindow from "./components/ChatWindow";
@@ -9,6 +9,7 @@ import VideoCall from "./components/VideoCall";
 import { useChat } from "./hooks/useChat";
 
 export default function ChatClient() {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const {
     status,
     onlineUsers,
@@ -44,10 +45,12 @@ export default function ChatClient() {
         onNext={nextStranger}
         onVoiceCall={() => startCall("audio")}
         onVideoCall={() => startCall("video")}
+        isOpen={sidebarOpen}
+        onClose={() => setSidebarOpen(false)}
       />
 
       <div className="flex min-h-0 flex-1 flex-col">
-        <Header typing={typing} />
+        <Header typing={typing} onOpenSidebar={() => setSidebarOpen(true)} />
 
         <ChatWindow messages={messages} typing={typing} onReply={handleReply} onReact={handleReactToMessage} />
 
