@@ -13,23 +13,40 @@ const createSvgFile = (name, content) => writeFile(path.join(publicDir, name), c
 
 const ogImage = `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="StrangerVerse preview">
-  <rect width="1200" height="630" fill="#050816" />
-  <rect x="60" y="60" width="1080" height="510" rx="42" fill="url(#bg)" />
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#111827" />
-      <stop offset="55%" stop-color="#1d4ed8" />
-      <stop offset="100%" stop-color="#9333ea" />
+      <stop offset="0%" stop-color="#050816" />
+      <stop offset="45%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="brand" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="55%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#f472b6" />
     </linearGradient>
   </defs>
-  <circle cx="930" cy="190" r="150" fill="#22d3ee" fill-opacity="0.22" />
-  <circle cx="290" cy="470" r="180" fill="#f472b6" fill-opacity="0.19" />
-  <path d="M270 250c70-78 186-78 246 0 43 57 43 140 0 196-60 78-176 78-246 0-43-56-43-139 0-196Z" fill="#ffffff" fill-opacity="0.12" stroke="#ffffff" stroke-opacity="0.28" />
-  <path d="M310 280h118" stroke="#ffffff" stroke-width="16" stroke-linecap="round" />
-  <path d="M320 330h104" stroke="#ffffff" stroke-width="16" stroke-linecap="round" />
-  <path d="M308 380h120" stroke="#ffffff" stroke-width="16" stroke-linecap="round" />
-  <text x="270" y="480" fill="#f8fafc" font-family="Arial, sans-serif" font-size="56" font-weight="700">StrangerVerse</text>
-  <text x="270" y="535" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="28">Anonymous chat, voice, and video worldwide</text>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <g opacity="0.18">
+    <circle cx="240" cy="320" r="220" fill="#38bdf8" />
+    <circle cx="560" cy="160" r="100" fill="#f472b6" />
+    <path d="M860 150c80-30 140 10 160 50" stroke="#8b5cf6" stroke-width="18" stroke-linecap="round" fill="none" />
+  </g>
+  <rect x="80" y="90" width="420" height="450" rx="48" fill="#0f172a" stroke="url(#brand)" stroke-width="4" />
+  <circle cx="290" cy="315" r="160" fill="url(#brand)" fill-opacity="0.12" />
+  <circle cx="290" cy="315" r="126" stroke="url(#brand)" stroke-width="16" fill="none" opacity="0.9" />
+  <path d="M186 330c22-40 68-68 116-74 24-3 46 1 65 13 24 15 37 38 36 63" fill="none" stroke="#38bdf8" stroke-width="14" stroke-linecap="round" opacity="0.35" />
+  <path d="M160 358c22-24 52-40 86-44 22-3 42 0 60 10 24 14 42 34 52 58" fill="none" stroke="#8b5cf6" stroke-width="14" stroke-linecap="round" opacity="0.25" />
+  <circle cx="214" cy="292" r="24" fill="#ffffff" fill-opacity="0.95" />
+  <path d="M194 338c0-14 11-25 25-25s25 11 25 25v18h-50v-18Z" fill="#ffffff" fill-opacity="0.85" />
+  <circle cx="318" cy="276" r="22" fill="#ffffff" fill-opacity="0.95" />
+  <path d="M300 308c0-12 9.5-21.5 21.5-21.5S343 296 343 308v15h-43v-15Z" fill="#ffffff" fill-opacity="0.85" />
+  <path d="M326 360h78a18 18 0 0 1 18 18v30a14 14 0 0 1-14 14H340l-18 16v-16h-6a18 18 0 0 1-18-18v-28a18 18 0 0 1 18-18Z" fill="url(#brand)" opacity="0.28" />
+  <path d="M334 368h62a12 12 0 0 1 12 12v24a9 9 0 0 1-9 9H334l-12 10v-10h-4a12 12 0 0 1-12-12v-18a12 12 0 0 1 12-12Z" fill="none" stroke="url(#brand)" stroke-width="8" opacity="0.5" stroke-linejoin="round" />
+  <path d="M182 210c21-14 46-18 70-12" fill="none" stroke="#f472b6" stroke-width="10" stroke-linecap="round" opacity="0.42" />
+  <path d="M260 125c0 8-6 16-14 16s-14-8-14-16 6-16 14-16 14 8 14 16Z" fill="#ffffff" opacity="0.14" />
+  <text x="540" y="240" fill="#f8fafc" font-family="Inter, system-ui, sans-serif" font-size="58" font-weight="700">StrangerVerse</text>
+  <text x="540" y="320" fill="#cbd5e1" font-family="Inter, system-ui, sans-serif" font-size="28" letter-spacing="0.02em">Anonymous chat for the world — text, voice, and video.</text>
+  <text x="540" y="380" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="22">Connect instantly with strangers in a premium global messaging experience.</text>
 </svg>
 `;
 
@@ -37,33 +54,40 @@ const favicon = `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="StrangerVerse icon">
   <defs>
     <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#22d3ee" />
-      <stop offset="50%" stop-color="#a855f7" />
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#8b5cf6" />
       <stop offset="100%" stop-color="#f472b6" />
     </linearGradient>
   </defs>
-  <rect width="64" height="64" rx="18" fill="#050816" />
-  <path d="M20 18c8-6 20-6 28 0 5 4 8 10 8 16 0 9-6 15-13 19-2 1-4 2-6 3-2-1-4-2-6-3-7-4-13-10-13-19 0-6 3-12 8-16Z" fill="url(#g)" />
-  <circle cx="28" cy="32" r="3.5" fill="#fff" />
-  <circle cx="36" cy="32" r="3.5" fill="#fff" />
-  <path d="M27 40c2 2 8 2 10 0" stroke="#fff" stroke-width="2.5" stroke-linecap="round" />
+  <rect width="64" height="64" rx="16" fill="#050816" />
+  <circle cx="32" cy="28" r="14" fill="url(#g)" fill-opacity="0.14" />
+  <path d="M17 29c0-6 5-11 11-11s11 5 11 11-5 11-11 11-11-5-11-11Z" fill="none" stroke="url(#g)" stroke-width="2.5" opacity="0.9" />
+  <path d="M16 34c4-6 11-10 18-10s14 4 18 10" fill="none" stroke="#8b5cf6" stroke-width="1.5" opacity="0.55" />
+  <circle cx="23" cy="24" r="4" fill="#fff" />
+  <path d="M19 31c0-2.8 2.2-5 5-5s5 2.2 5 5v1.5h-10V31Z" fill="#fff" opacity="0.88" />
+  <circle cx="40" cy="22" r="3.5" fill="#fff" />
+  <path d="M38 28c0-2.2 1.8-4 4-4s4 1.8 4 4v1h-8v-1Z" fill="#fff" opacity="0.88" />
+  <path d="M40 39h14a5 5 0 0 1 5 5v6a5 5 0 0 1-5 5H42l-4 4v-4H36a5 5 0 0 1-5-5v-6a5 5 0 0 1 5-5Z" fill="url(#g)" fill-opacity="0.2" stroke="url(#g)" stroke-width="1.5" stroke-linejoin="round" />
 </svg>
 `;
 
 const appleIcon = `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" role="img" aria-label="StrangerVerse icon">
-  <rect width="180" height="180" rx="36" fill="#050816" />
   <defs>
     <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#22d3ee" />
-      <stop offset="50%" stop-color="#a855f7" />
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#8b5cf6" />
       <stop offset="100%" stop-color="#f472b6" />
     </linearGradient>
   </defs>
-  <path d="M55 45c22-16 54-16 76 0 13 10 21 25 21 41 0 24-16 41-35 52-5 2-9 3-14 4-5-2-9-3-14-4-19-11-35-28-35-52 0-16 8-31 21-41Z" fill="url(#g)" />
-  <circle cx="78" cy="90" r="9" fill="#fff" />
-  <circle cx="105" cy="90" r="9" fill="#fff" />
-  <path d="M75 115c4 4 16 4 20 0" stroke="#fff" stroke-width="6" stroke-linecap="round" />
+  <rect width="180" height="180" rx="36" fill="#050816" />
+  <circle cx="90" cy="90" r="74" fill="url(#g)" fill-opacity="0.12" />
+  <circle cx="90" cy="90" r="58" stroke="url(#g)" stroke-width="14" fill="none" opacity="0.92" />
+  <circle cx="72" cy="82" r="12" fill="#fff" />
+  <path d="M62 108c0-12 9.5-22 21.5-22S105 96 105 108v20H62v-20Z" fill="#fff" fill-opacity="0.84" />
+  <circle cx="110" cy="78" r="10" fill="#fff" />
+  <path d="M102 98c0-8 6.5-14.5 14.5-14.5S131 90 131 98v14h-29v-14Z" fill="#fff" fill-opacity="0.84" />
+  <path d="M107 120h44a12 12 0 0 1 12 12v20a10 10 0 0 1-10 10H117l-16 14v-14h-6a12 12 0 0 1-12-12v-18a12 12 0 0 1 12-12Z" fill="url(#g)" opacity="0.28" />
 </svg>
 `;
 
@@ -71,17 +95,22 @@ const logoSvg = `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="StrangerVerse logo">
   <defs>
     <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#22d3ee" />
-      <stop offset="50%" stop-color="#a855f7" />
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#8b5cf6" />
       <stop offset="100%" stop-color="#f472b6" />
     </linearGradient>
   </defs>
   <rect width="256" height="256" rx="48" fill="#050816" />
-  <path d="M80 60c32-24 80-24 112 0 20 15 32 37 32 62 0 34-22 57-48 72-8 4-16 6-24 7-8-3-16-5-24-7-26-15-48-38-48-72 0-25 12-47 32-62Z" fill="url(#g)" />
-  <circle cx="105" cy="120" r="14" fill="#fff" />
-  <circle cx="151" cy="120" r="14" fill="#fff" />
-  <path d="M100 150c5 5 20 5 25 0" stroke="#fff" stroke-width="8" stroke-linecap="round" />
-  <text x="128" y="240" text-anchor="middle" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="28" font-weight="700">SV</text>
+  <circle cx="128" cy="128" r="90" fill="url(#g)" fill-opacity="0.12" />
+  <circle cx="128" cy="128" r="78" stroke="url(#g)" stroke-width="18" fill="none" opacity="0.88" />
+  <path d="M70 126c8-20 26-35 47-40 16-4 32-2 46 8 18 12 29 32 29 54" fill="none" stroke="#38bdf8" stroke-width="14" stroke-linecap="round" opacity="0.32" />
+  <path d="M62 166c12-18 32-30 54-34 18-3 34 0 48 10 18 12 32 30 38 52" fill="none" stroke="#8b5cf6" stroke-width="14" stroke-linecap="round" opacity="0.24" />
+  <circle cx="92" cy="118" r="20" fill="#fff" fill-opacity="0.95" />
+  <path d="M80 150c0-12 10-22 22-22s22 10 22 22v18H80v-18Z" fill="#fff" fill-opacity="0.86" />
+  <circle cx="160" cy="110" r="18" fill="#fff" fill-opacity="0.95" />
+  <path d="M150 136c0-10 8.5-18.5 18.5-18.5s18.5 8.5 18.5 18.5v14h-37v-14Z" fill="#fff" fill-opacity="0.86" />
+  <path d="M168 166h60a20 20 0 0 1 20 20v34a16 16 0 0 1-16 16H178l-22 20v-20h-6a20 20 0 0 1-20-20v-30a20 20 0 0 1 20-20Z" fill="url(#g)" opacity="0.26" />
+  <path d="M178 174h50a14 14 0 0 1 14 14v28a11 11 0 0 1-11 11H178l-16 14v-14h-4a14 14 0 0 1-14-14v-21a14 14 0 0 1 14-14Z" fill="none" stroke="url(#g)" stroke-width="10" opacity="0.48" stroke-linejoin="round" />
 </svg>
 `;
 

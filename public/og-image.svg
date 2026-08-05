@@ -1,20 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="StrangerVerse preview">
-  <rect width="1200" height="630" fill="#050816" />
-  <rect x="60" y="60" width="1080" height="510" rx="42" fill="url(#bg)" />
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#111827" />
-      <stop offset="55%" stop-color="#1d4ed8" />
-      <stop offset="100%" stop-color="#9333ea" />
+      <stop offset="0%" stop-color="#050816" />
+      <stop offset="45%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="brand" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="55%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#f472b6" />
     </linearGradient>
   </defs>
-  <circle cx="930" cy="190" r="150" fill="#22d3ee" fill-opacity="0.22" />
-  <circle cx="290" cy="470" r="180" fill="#f472b6" fill-opacity="0.19" />
-  <path d="M270 250c70-78 186-78 246 0 43 57 43 140 0 196-60 78-176 78-246 0-43-56-43-139 0-196Z" fill="#ffffff" fill-opacity="0.12" stroke="#ffffff" stroke-opacity="0.28" />
-  <path d="M310 280h118" stroke="#ffffff" stroke-width="16" stroke-linecap="round" />
-  <path d="M320 330h104" stroke="#ffffff" stroke-width="16" stroke-linecap="round" />
-  <path d="M308 380h120" stroke="#ffffff" stroke-width="16" stroke-linecap="round" />
-  <text x="270" y="480" fill="#f8fafc" font-family="Arial, sans-serif" font-size="56" font-weight="700">StrangerVerse</text>
-  <text x="270" y="535" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="28">Anonymous chat, voice, and video worldwide</text>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <g opacity="0.18">
+    <circle cx="240" cy="320" r="220" fill="#38bdf8" />
+    <circle cx="560" cy="160" r="100" fill="#f472b6" />
+    <path d="M860 150c80-30 140 10 160 50" stroke="#8b5cf6" stroke-width="18" stroke-linecap="round" fill="none" />
+  </g>
+  <rect x="80" y="90" width="420" height="450" rx="48" fill="#0f172a" stroke="url(#brand)" stroke-width="4" />
+  <circle cx="290" cy="315" r="160" fill="url(#brand)" fill-opacity="0.12" />
+  <circle cx="290" cy="315" r="126" stroke="url(#brand)" stroke-width="16" fill="none" opacity="0.9" />
+  <path d="M186 330c22-40 68-68 116-74 24-3 46 1 65 13 24 15 37 38 36 63" fill="none" stroke="#38bdf8" stroke-width="14" stroke-linecap="round" opacity="0.35" />
+  <path d="M160 358c22-24 52-40 86-44 22-3 42 0 60 10 24 14 42 34 52 58" fill="none" stroke="#8b5cf6" stroke-width="14" stroke-linecap="round" opacity="0.25" />
+  <circle cx="214" cy="292" r="24" fill="#ffffff" fill-opacity="0.95" />
+  <path d="M194 338c0-14 11-25 25-25s25 11 25 25v18h-50v-18Z" fill="#ffffff" fill-opacity="0.85" />
+  <circle cx="318" cy="276" r="22" fill="#ffffff" fill-opacity="0.95" />
+  <path d="M300 308c0-12 9.5-21.5 21.5-21.5S343 296 343 308v15h-43v-15Z" fill="#ffffff" fill-opacity="0.85" />
+  <path d="M326 360h78a18 18 0 0 1 18 18v30a14 14 0 0 1-14 14H340l-18 16v-16h-6a18 18 0 0 1-18-18v-28a18 18 0 0 1 18-18Z" fill="url(#brand)" opacity="0.28" />
+  <path d="M334 368h62a12 12 0 0 1 12 12v24a9 9 0 0 1-9 9H334l-12 10v-10h-4a12 12 0 0 1-12-12v-18a12 12 0 0 1 12-12Z" fill="none" stroke="url(#brand)" stroke-width="8" opacity="0.5" stroke-linejoin="round" />
+  <path d="M182 210c21-14 46-18 70-12" fill="none" stroke="#f472b6" stroke-width="10" stroke-linecap="round" opacity="0.42" />
+  <path d="M260 125c0 8-6 16-14 16s-14-8-14-16 6-16 14-16 14 8 14 16Z" fill="#ffffff" opacity="0.14" />
+  <text x="540" y="240" fill="#f8fafc" font-family="Inter, system-ui, sans-serif" font-size="58" font-weight="700">StrangerVerse</text>
+  <text x="540" y="320" fill="#cbd5e1" font-family="Inter, system-ui, sans-serif" font-size="28" letter-spacing="0.02em">Anonymous chat for the world — text, voice, and video.</text>
+  <text x="540" y="380" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="22">Connect instantly with strangers in a premium global messaging experience.</text>
 </svg>
