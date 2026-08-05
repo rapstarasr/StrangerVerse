@@ -31,41 +31,41 @@ export default function Sidebar({
         aria-hidden={!isOpen}
       />
 
-      <aside className={`fixed inset-y-0 left-0 z-50 w-full max-w-xs transform border-r border-slate-800 bg-slate-950 text-white p-5 shadow-2xl transition-transform duration-300 md:static md:translate-x-0 md:w-72 ${isOpen ? "translate-x-0" : "-translate-x-full"}`}>
-        <div className="flex items-center justify-between gap-4 md:block">
+      <aside className={`fixed inset-y-0 left-0 z-50 w-full max-w-xs transform border-r border-[color:var(--border)] bg-[color:var(--surface)] text-[color:var(--foreground)] p-5 shadow-2xl transition-transform duration-300 md:static md:translate-x-0 md:h-screen md:w-80 ${isOpen ? "translate-x-0" : "-translate-x-full"}`}>
+        <div className="flex items-center justify-between gap-4">
           <div>
-            <p className="text-xs uppercase tracking-[0.28em] text-cyan-300">Anonymous room</p>
-            <h1 className="mt-3 text-3xl font-bold text-white md:text-4xl">StrangerVerse</h1>
+            <p className="text-xs uppercase tracking-[0.28em] text-cyan-500">Anonymous room</p>
+            <h1 className="mt-3 text-3xl font-bold text-[color:var(--foreground)] md:text-4xl">StrangerVerse</h1>
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition hover:bg-white/10 md:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[color:var(--border)] bg-[color:var(--surface-muted)] text-[color:var(--foreground)] transition hover:bg-[color:var(--surface)] md:hidden"
             aria-label="Close menu"
           >
             <X className="h-5 w-5" />
           </button>
         </div>
 
-        <div className="mt-8 rounded-[32px] bg-slate-900/95 p-5 ring-1 ring-white/10 shadow-[0_24px_60px_rgba(15,23,42,0.25)]">
+        <div className="mt-8 rounded-[32px] bg-[color:var(--surface-muted)]/80 p-5 ring-1 ring-[color:var(--border)] shadow-[0_24px_60px_rgba(15,23,42,0.15)]">
           <div className="flex items-center gap-4">
             <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-gradient-to-br from-fuchsia-600 to-violet-500 text-white shadow-[0_20px_40px_rgba(168,85,247,0.25)]">
               <Sparkles className="h-7 w-7" />
             </div>
             <div className="min-w-0">
-              <p className="text-sm font-semibold uppercase tracking-[0.28em] text-slate-400">Instant matches</p>
-              <p className="mt-2 text-base font-semibold text-white">Find a stranger in seconds.</p>
+              <p className="text-sm font-semibold uppercase tracking-[0.28em] text-slate-500">Instant matches</p>
+              <p className="mt-2 text-base font-semibold text-[color:var(--foreground)]">Find a stranger in seconds.</p>
             </div>
           </div>
 
-          <div className="mt-5 rounded-3xl bg-slate-950/80 p-4 text-sm text-slate-300 shadow-inner shadow-slate-950/20">
+          <div className="mt-5 rounded-3xl bg-[color:var(--surface)] p-4 text-sm text-slate-600 shadow-inner shadow-[color:var(--shadow)]">
             <div className="flex items-center gap-3">
-              <Users2 className="h-5 w-5 text-cyan-300" />
+              <Users2 className="h-5 w-5 text-cyan-500" />
               <span className="font-medium">{onlineUsers} people online</span>
             </div>
             <div className="mt-3 flex items-center gap-3">
-              <ShieldCheck className="h-5 w-5 text-violet-400" />
-              <span className="text-slate-400">Private anonymous chat</span>
+              <ShieldCheck className="h-5 w-5 text-violet-500" />
+              <span className="text-slate-500">Private anonymous chat</span>
             </div>
           </div>
         </div>
@@ -79,7 +79,7 @@ export default function Sidebar({
           </button>
           <button
             onClick={onNext}
-            className="inline-flex h-14 items-center justify-center rounded-3xl border border-slate-700 bg-slate-900 text-sm font-semibold text-white transition hover:border-violet-400 hover:text-violet-200"
+            className="inline-flex h-14 items-center justify-center rounded-3xl border border-[color:var(--border)] bg-[color:var(--surface-muted)] text-sm font-semibold text-[color:var(--foreground)] transition hover:border-violet-400 hover:text-violet-600"
           >
             ⏭ Next
           </button>
@@ -89,38 +89,36 @@ export default function Sidebar({
           <button
             type="button"
             onClick={onVoiceCall}
-            className="rounded-3xl border border-slate-800 bg-slate-900/85 px-4 py-3 text-left text-sm font-medium text-slate-100 transition hover:border-emerald-400 hover:text-white"
+            className="rounded-3xl border border-[color:var(--border)] bg-[color:var(--surface-muted)] px-4 py-3 text-left text-sm font-medium text-[color:var(--foreground)] transition hover:border-emerald-400 hover:text-emerald-600"
           >
             <div className="font-semibold">🎙 Voice Call</div>
-            <p className="mt-1 text-xs text-slate-400">Quick audio rooms</p>
+            <p className="mt-1 text-xs text-slate-500">Quick audio rooms</p>
           </button>
           <button
             type="button"
             onClick={onVideoCall}
-            className="rounded-3xl border border-violet-600/40 bg-violet-600/10 px-4 py-3 text-left text-sm font-medium text-violet-200 transition hover:bg-violet-600/20"
+            className="rounded-3xl border border-violet-500/30 bg-violet-500/10 px-4 py-3 text-left text-sm font-medium text-violet-700 transition hover:bg-violet-500/20"
           >
             <div className="font-semibold">📹 Video Call</div>
-            <p className="mt-1 text-xs text-slate-400">Instant video match</p>
+            <p className="mt-1 text-xs text-slate-500">Instant video match</p>
           </button>
         </div>
 
-        <div className="mt-8 grid gap-3 text-sm text-slate-200 sm:grid-cols-2">
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-4 shadow-sm">
-            <p className="text-slate-400">Online users</p>
-            <p className="mt-3 text-3xl font-semibold text-white">{onlineUsers}</p>
+        <div className="mt-8 grid gap-3 text-sm text-slate-800 sm:grid-cols-2">
+          <div className="rounded-3xl border border-[color:var(--border)] bg-[color:var(--surface)] p-4 shadow-sm">
+            <p className="text-slate-500">Online users</p>
+            <p className="mt-3 text-3xl font-semibold text-[color:var(--foreground)]">{onlineUsers}</p>
           </div>
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-4 shadow-sm">
-            <p className="text-slate-400">Status</p>
-            <p className="mt-3 text-3xl font-semibold text-emerald-300">{status}</p>
+          <div className="rounded-3xl border border-[color:var(--border)] bg-[color:var(--surface)] p-4 shadow-sm">
+            <p className="text-slate-500">Status</p>
+            <p className="mt-3 text-3xl font-semibold text-emerald-500">{status}</p>
           </div>
         </div>
 
-        <div className="mt-8 rounded-3xl border border-white/10 bg-slate-900/60 p-4 text-sm text-slate-400">
-          <p className="font-semibold text-slate-100">Mobile navigation</p>
-          <p className="mt-2 leading-6">Tap outside the drawer to close it, or use the menu button to reopen at any time.</p>
+        <div className="mt-8 rounded-3xl border border-[color:var(--border)] bg-[color:var(--surface-muted)] p-4 text-sm text-slate-500">
+          <p className="font-semibold text-[color:var(--foreground)]">Premium mobile hub</p>
+          <p className="mt-2 leading-6">Tap outside the drawer to close it and stay focused on the chat feed.</p>
         </div>
-
-        <div className="mt-6 text-sm text-slate-500">StrangerVerse v2</div>
       </aside>
     </>
   );

@@ -60,17 +60,17 @@ function ChatWindow({
 
   if (!messages.length) {
     return (
-      <div className="flex flex-1 items-center justify-center bg-slate-950 p-6 text-center">
-        <div className="max-w-sm rounded-[32px] border border-white/10 bg-slate-900/90 px-6 py-10 shadow-[0_30px_80px_rgba(15,23,42,0.35)] backdrop-blur-sm">
-          <p className="text-lg font-semibold text-white">{emptyMessage}</p>
-          <p className="mt-3 text-sm leading-6 text-slate-400">Connect with a new stranger and watch the conversation come alive in a secure chat space.</p>
+      <div className="flex flex-1 items-center justify-center bg-[color:var(--surface)] p-6 text-center text-[color:var(--foreground)]">
+        <div className="max-w-sm rounded-[32px] border border-[color:var(--border)] bg-[color:var(--surface-muted)] px-6 py-10 shadow-[0_30px_80px_rgba(15,23,42,0.12)]">
+          <p className="text-lg font-semibold text-[color:var(--foreground)]">{emptyMessage}</p>
+          <p className="mt-3 text-sm leading-6 text-slate-500">Connect with a new stranger and watch the conversation come alive in a secure chat space.</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="flex-1 overflow-y-auto bg-slate-950 p-4 pb-[calc(6rem+env(safe-area-inset-bottom))]">
+    <div className="flex-1 overflow-y-auto bg-[color:var(--surface)] text-[color:var(--foreground)] p-4 pb-[calc(6rem+env(safe-area-inset-bottom))]">
       <div className="mx-auto flex max-w-3xl flex-col gap-4">
         <div className="flex justify-center">
           <div className="rounded-full bg-white/10 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-300 shadow-sm">

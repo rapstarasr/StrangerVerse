@@ -119,7 +119,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
-      <body className="min-h-screen bg-[#050816] text-white antialiased">
+      <body className="min-h-screen antialiased">
+        <Script id="theme-script" strategy="beforeInteractive">
+          {`(function() {
+            const themeKey = 'theme-preference';
+            const stored = window.localStorage.getItem(themeKey);
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+            const resolved = stored === 'light' || stored === 'dark' ? stored : prefersDark.matches ? 'dark' : 'light';
+            document.documentElement.dataset.theme = resolved;
+            if (stored !== 'light' && stored !== 'dark') {
+              prefersDark.addEventListener('change', (event) => {
+                document.documentElement.dataset.theme = event.matches ? 'dark' : 'light';
+              });
+            }
+          })();`}
+        </Script>
         {children}
         <Script id="structured-data" type="application/ld+json">
           {JSON.stringify(structuredData)}

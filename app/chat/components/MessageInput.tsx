@@ -166,7 +166,7 @@ function MessageInput({
   return (
     <div className="sticky bottom-0 left-0 right-0 z-20 border-t border-slate-800 bg-slate-950/95 backdrop-blur-xl px-4 pb-[calc(1rem+env(safe-area-inset-bottom))] pt-4 shadow-[0_-20px_40px_rgba(15,23,42,0.25)]">
       {selectedFile ? (
-        <div className="mb-3 rounded-3xl bg-slate-900/80 px-4 py-3 text-sm text-slate-200 shadow-sm ring-1 ring-white/10">
+        <div className="mb-3 rounded-3xl bg-[color:var(--surface-muted)]/85 px-4 py-3 text-sm text-[color:var(--foreground)] shadow-sm ring-1 ring-[color:var(--border)]">
           <div className="flex items-center justify-between gap-3">
             <span className="truncate font-medium text-white">{selectedFile.name}</span>
             <button onClick={onClearFile} className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-800 text-slate-300 transition hover:bg-slate-700 hover:text-white" aria-label="Remove selected file">
@@ -286,7 +286,7 @@ function MessageInput({
                 onChange={(event) => onChange(event.target.value)}
                 onKeyDown={handleInputKeyDown}
                 placeholder="Type a message..."
-                className="w-full min-w-0 rounded-full border border-slate-800 bg-slate-900 px-4 py-3 text-sm text-slate-100 outline-none placeholder:text-slate-500 transition focus:border-violet-400 focus:ring-2 focus:ring-violet-500/10"
+                className="w-full min-w-0 rounded-full border border-[color:var(--border)] bg-[color:var(--surface-muted)] px-4 py-3 text-sm text-[color:var(--foreground)] outline-none placeholder:text-slate-500 transition focus:border-violet-400 focus:ring-2 focus:ring-violet-500/10"
                 aria-label="Message input"
                 disabled={isRecording}
               />

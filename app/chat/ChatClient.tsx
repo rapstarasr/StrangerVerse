@@ -37,7 +37,7 @@ export default function ChatClient() {
   } = useChat();
 
   return (
-    <div className="relative flex min-h-screen flex-col overflow-x-hidden bg-gray-100 md:flex-row">
+    <div className="relative flex min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(79,70,229,0.14),transparent_30%),radial-gradient(circle_at_top_right,_rgba(6,182,212,0.12),transparent_35%),var(--background)] text-[color:var(--foreground)] md:flex-row">
       <Sidebar
         onlineUsers={onlineUsers}
         status={status}
@@ -49,8 +49,15 @@ export default function ChatClient() {
         onClose={() => setSidebarOpen(false)}
       />
 
-      <div className="flex min-h-0 flex-1 flex-col">
-        <Header typing={typing} onOpenSidebar={() => setSidebarOpen(true)} />
+      <main className="flex min-h-0 flex-1 flex-col">
+        <Header
+          typing={typing}
+          onlineUsers={onlineUsers}
+          status={status}
+          onOpenSidebar={() => setSidebarOpen(true)}
+          onVoiceCall={() => startCall("audio")}
+          onVideoCall={() => startCall("video")}
+        />
 
         <ChatWindow messages={messages} typing={typing} onReply={handleReply} onReact={handleReactToMessage} />
 
@@ -65,7 +72,7 @@ export default function ChatClient() {
           replyTo={replyTo}
           onCancelReply={clearReply}
         />
-      </div>
+      </main>
 
       {activeCall ? (
         <div className="absolute inset-0 z-40 flex items-center justify-center bg-slate-950/70 p-4 backdrop-blur-sm">
