@@ -30,12 +30,12 @@ function VoiceControls({
 }: VoiceControlsProps) {
   const playButtonClass = `flex h-10 w-10 shrink-0 items-center justify-center rounded-full border transition-all duration-200 active:scale-95 ${
     isYou
-      ? "border-white/20 bg-white/15 text-white shadow-sm shadow-black/10 hover:bg-white/25"
-      : "border-slate-200 bg-white text-slate-700 shadow-sm hover:border-purple-200 hover:bg-purple-50"
+      ? "border-white/20 bg-[rgba(139,92,246,0.16)] text-white shadow-[0_25px_40px_rgba(139,92,246,0.22)] hover:bg-[rgba(139,92,246,0.22)]"
+      : "border-[rgba(255,255,255,0.08)] bg-[#111827] text-[#22D3EE] shadow-[0_18px_35px_rgba(0,0,0,0.18)] hover:bg-[rgba(34,211,238,0.08)]"
   } ${disabled ? "cursor-not-allowed opacity-70" : ""}`;
 
   const iconButtonClass = `flex h-8 w-8 items-center justify-center rounded-full transition-all duration-200 active:scale-95 ${
-    isYou ? "bg-white/15 text-white hover:bg-white/25" : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+    isYou ? "bg-[rgba(139,92,246,0.15)] text-white hover:bg-[rgba(139,92,246,0.22)]" : "bg-[rgba(255,255,255,0.05)] text-slate-100 hover:bg-[rgba(255,255,255,0.1)]"
   }`;
 
   return (
@@ -52,7 +52,7 @@ function VoiceControls({
         <Download className="h-3.5 w-3.5" />
       </button>
 
-      <button type="button" onClick={onCycleRate} className={`rounded-full px-2.5 py-1 text-[11px] font-semibold transition-all duration-200 active:scale-95 ${isYou ? "bg-white/15 text-white ring-1 ring-white/20" : "bg-slate-100 text-slate-700 ring-1 ring-slate-200"}`} aria-label={`Change playback speed to ${playbackRateLabel}`}>
+      <button type="button" onClick={onCycleRate} className={`rounded-full px-2.5 py-1 text-[11px] font-semibold transition-all duration-200 active:scale-95 ${isYou ? "bg-[rgba(139,92,246,0.15)] text-white ring-1 ring-white/20" : "bg-[rgba(34,211,238,0.1)] text-[#22D3EE] ring-1 ring-[rgba(34,211,238,0.22)]"}`} aria-label={`Change playback speed to ${playbackRateLabel}`}>
         {playbackRateLabel}
       </button>
     </div>

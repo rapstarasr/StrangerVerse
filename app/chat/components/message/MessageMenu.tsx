@@ -16,7 +16,7 @@ type MessageMenuProps = {
 };
 
 const actionClass = (darkMode: boolean) =>
-  `flex w-full items-center justify-between rounded-xl px-3 py-2 text-sm transition ${darkMode ? "text-slate-100 hover:bg-slate-800" : "text-slate-700 hover:bg-slate-100"}`;
+  `flex w-full items-center justify-between rounded-xl px-3 py-2 text-sm transition ${darkMode ? "text-slate-100 hover:bg-[rgba(139,92,246,0.12)]" : "text-slate-300 hover:bg-[rgba(255,255,255,0.06)]"}`;
 
 export function MessageMenu(props: MessageMenuProps) {
   return (

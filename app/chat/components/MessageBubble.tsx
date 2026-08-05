@@ -21,7 +21,7 @@ function TextBubble({ text, isYou }: { text: string; isYou: boolean }) {
   const parts = text.split(linkPattern);
 
   return (
-    <p className={`whitespace-pre-wrap break-words text-[15px] leading-6 ${isYou ? "text-white" : "text-slate-900"}`}>
+    <p className={`whitespace-pre-wrap break-words text-[15px] leading-6 ${isYou ? "text-white" : "text-slate-200"}`}>
       {parts.map((part, index) => {
         if (!part) {
           return null;
@@ -34,7 +34,7 @@ function TextBubble({ text, isYou }: { text: string; isYou: boolean }) {
               href={part}
               target="_blank"
               rel="noopener noreferrer"
-              className={`break-all underline decoration-2 underline-offset-2 ${isYou ? "text-white/90" : "text-purple-700"}`}
+              className={`break-all underline decoration-[rgba(34,211,238,0.35)] underline-offset-2 ${isYou ? "text-white/90" : "text-[#22D3EE]"}`}
             >
               {part}
             </a>
@@ -49,7 +49,7 @@ function TextBubble({ text, isYou }: { text: string; isYou: boolean }) {
 
 function ImageBubble({ src, alt, isYou }: { src: string; alt: string; isYou: boolean }) {
   return (
-    <div className={`overflow-hidden rounded-[20px] border ${isYou ? "border-white/20" : "border-slate-200"}`}>
+    <div className={`overflow-hidden rounded-[20px] border ${isYou ? "border-white/20 bg-[#0F172A]" : "border-[rgba(255,255,255,0.08)] bg-[#101827]"}`}>
       <img src={src} alt={alt} className="max-h-72 w-full object-cover" />
     </div>
   );
@@ -59,13 +59,13 @@ function FileBubble({ fileName, url, type, isYou }: { fileName: string; url: str
   const label = type === "pdf" ? "Open PDF" : type === "video" ? "Open video" : "Open file";
 
   return (
-    <div className={`max-w-[min(100%,320px)] rounded-[20px] border px-3 py-3 ${isYou ? "border-white/20 bg-white/10" : "border-slate-200 bg-slate-50"}`}>
-      <div className={`mb-2 text-sm font-semibold ${isYou ? "text-white" : "text-slate-800"}`}>{fileName}</div>
+    <div className={`max-w-[min(100%,320px)] rounded-[20px] border px-3 py-3 ${isYou ? "border-white/10 bg-[#111827]" : "border-[rgba(255,255,255,0.08)] bg-[#101827]"}`}>
+      <div className={`mb-2 text-sm font-semibold ${isYou ? "text-white" : "text-slate-200"}`}>{fileName}</div>
       <a
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        className={`inline-flex rounded-full px-3 py-1.5 text-sm font-medium transition hover:opacity-90 ${isYou ? "bg-white text-purple-700" : "bg-purple-600 text-white"}`}
+        className={`inline-flex rounded-full px-3 py-1.5 text-sm font-medium transition hover:brightness-110 ${isYou ? "bg-[#8B5CF6] text-white" : "bg-[#22D3EE] text-slate-950"}`}
       >
         {label}
       </a>
@@ -77,9 +77,9 @@ function MessageFooter({ time, status, isYou }: { time?: string; status?: string
   const statusLabel = status === "sending" ? "⏳" : status === "sent" ? "✓" : status === "delivered" ? "✓✓" : status === "seen" ? "👀" : status === "uploading" ? "⬆️" : status === "failed" ? "⚠️" : status === "retry" ? "↻" : status;
 
   return (
-    <div className={`mt-2 flex items-center justify-end gap-1.5 text-[11px] leading-none ${isYou ? "text-white/80" : "text-slate-500"}`}>
-      {time ? <span className={isYou ? "text-white/80" : "text-slate-500"}>{time}</span> : null}
-      {status ? <span className={`min-w-[16px] text-center text-[11px] ${isYou ? "text-white/85" : "text-slate-500"}`}>{statusLabel}</span> : null}
+    <div className={`mt-2 flex items-center justify-end gap-1.5 text-[11px] leading-none ${isYou ? "text-white/70" : "text-slate-400"}`}>
+      {time ? <span className={isYou ? "text-white/70" : "text-slate-400"}>{time}</span> : null}
+      {status ? <span className={`min-w-[16px] text-center text-[11px] ${isYou ? "text-white/75" : "text-slate-400"}`}>{statusLabel}</span> : null}
     </div>
   );
 }
@@ -204,22 +204,22 @@ function MessageBubble({ message, onReply, onReact, onQuoteClick, isHighlighted 
       <button
         type="button"
         onClick={() => onQuoteClick?.(message.replyTo?.id)}
-        className={`mb-3 w-full rounded-[22px] border px-3 py-3 text-left shadow-sm transition ${isOutgoing ? "border-white/20 bg-white/10" : "border-slate-700 bg-slate-100"}`}
+        className={`mb-3 w-full rounded-[22px] border px-3 py-3 text-left shadow-sm transition ${isOutgoing ? "border-white/20 bg-[rgba(255,255,255,0.10)]" : "border-[rgba(255,255,255,0.08)] bg-[#101827]"}`}
       >
-        <div className={`mb-2 text-[11px] font-semibold uppercase tracking-[0.22em] ${isOutgoing ? "text-white/70" : "text-slate-500"}`}>
+        <div className={`mb-2 text-[11px] font-semibold uppercase tracking-[0.22em] ${isOutgoing ? "text-white/70" : "text-slate-400"}`}>
           {message.replyTo.sender === "you" ? "You" : message.replyTo.sender === "stranger" ? "Stranger" : "System"}
         </div>
         <div className="flex items-start gap-3">
-          <div className={`mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-2xl ${isOutgoing ? "bg-white/15 text-white" : "bg-slate-200 text-slate-700"}`}>
+          <div className={`mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-2xl ${isOutgoing ? "bg-[rgba(255,255,255,0.15)] text-white" : "bg-[rgba(255,255,255,0.05)] text-slate-100"}`}>
             {previewIcon}
           </div>
           <div className="min-w-0">
             {previewUrl ? (
-              <div className="mb-2 overflow-hidden rounded-3xl border border-slate-200 bg-white">
+              <div className="mb-2 overflow-hidden rounded-3xl border border-[rgba(255,255,255,0.08)] bg-[#0F172A]">
                 <img src={previewUrl} alt="Reply preview" className="h-14 w-full object-cover" />
               </div>
             ) : null}
-            <div className={`text-sm ${isOutgoing ? "text-white" : "text-slate-700"}`}>
+            <div className={`text-sm ${isOutgoing ? "text-white" : "text-slate-300"}`}>
               {canFindOriginal ? previewText : "Original message unavailable"}
             </div>
           </div>
@@ -231,7 +231,7 @@ function MessageBubble({ message, onReply, onReact, onQuoteClick, isHighlighted 
   if (isSystem) {
     return (
       <div className="mb-4 flex justify-center">
-        <div className="rounded-full bg-white/10 px-5 py-2 text-sm text-slate-200 shadow-sm backdrop-blur-sm">
+        <div className="rounded-full bg-[rgba(255,255,255,0.08)] px-5 py-2 text-sm text-slate-100 shadow-[0_24px_60px_rgba(0,0,0,0.28)] backdrop-blur-sm">
           {message.text}
         </div>
       </div>
@@ -251,9 +251,9 @@ function MessageBubble({ message, onReply, onReact, onQuoteClick, isHighlighted 
       onPointerCancel={handlePointerUp}
     >
       <div className="relative max-w-[min(100%,440px)]">
-        <div className={`rounded-[28px] px-4 py-4 shadow-[0_18px_60px_rgba(15,23,42,0.12)] transition-all duration-200 hover:-translate-y-0.5 ${isOutgoing ? "bg-gradient-to-br from-fuchsia-600 via-purple-600 to-indigo-600 text-white" : "bg-white text-slate-900"} ${isHighlighted ? "ring-2 ring-purple-400 ring-offset-2 ring-offset-slate-950" : ""}`}>
+        <div className={`rounded-[32px] border border-[color:var(--border)] px-4 py-4 shadow-[0_24px_80px_rgba(0,0,0,0.18)] transition-all duration-200 hover:-translate-y-0.5 ${isOutgoing ? "bg-gradient-to-br from-[#8B5CF6] via-[#7C3AED] to-[#22D3EE] text-white shadow-[0_24px_80px_rgba(34,211,238,0.16)]" : "bg-[color:var(--surface)] text-slate-100"} ${isHighlighted ? "ring-2 ring-[#8B5CF6] ring-offset-2 ring-offset-[#070B17]" : ""}`}>
           <div className="flex justify-end">
-            <button type="button" onClick={handleReplyClick} className={`mb-2 text-[11px] font-semibold uppercase tracking-[0.2em] ${isOutgoing ? "text-white/80" : "text-slate-500"}`}>
+            <button type="button" onClick={handleReplyClick} className={`mb-2 text-[11px] font-semibold uppercase tracking-[0.2em] ${isOutgoing ? "text-white/80" : "text-slate-400"}`}>
               Reply
             </button>
           </div>
@@ -261,7 +261,7 @@ function MessageBubble({ message, onReply, onReact, onQuoteClick, isHighlighted 
           {renderBody()}
         </div>
         {showReactions ? (
-          <div style={reactionPopupStyle} className="absolute -top-14 left-0 z-20 flex items-center gap-2 rounded-full border border-slate-700 bg-slate-950/95 px-2 py-2 text-white shadow-lg backdrop-blur-sm transition-all duration-200">
+          <div style={reactionPopupStyle} className="absolute -top-14 left-0 z-20 flex items-center gap-2 rounded-full border border-[rgba(255,255,255,0.12)] bg-[#090B17]/95 px-2 py-2 text-white shadow-[0_24px_60px_rgba(0,0,0,0.28)] backdrop-blur-sm transition-all duration-200">
             {reactionEmojis.map((emoji) => (
               <button key={emoji} type="button" onClick={() => handleReactionSelect(emoji)} className="rounded-full px-2 py-1 text-lg transition hover:-translate-y-0.5 hover:scale-110">
                 {emoji}
@@ -277,7 +277,7 @@ function MessageBubble({ message, onReply, onReact, onQuoteClick, isHighlighted 
                 key={reaction.emoji}
                 type="button"
                 onClick={() => handleReactionSelect(reaction.emoji)}
-                className={`flex items-center gap-1 rounded-full px-3 py-1 text-sm font-medium transition ${reactedByMe ? "bg-purple-600 text-white" : "bg-slate-200 text-slate-700"}`}
+                className={`flex items-center gap-1 rounded-full px-3 py-1 text-sm font-medium transition ${reactedByMe ? "bg-[#8B5CF6] text-white" : "bg-[rgba(255,255,255,0.06)] text-slate-200"}`}
               >
                 <span>{reaction.emoji}</span>
                 <span>{reaction.users.length}</span>

@@ -2,24 +2,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="StrangerVerse icon">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#20345B" />
-      <stop offset="100%" stop-color="#18223F" />
+      <stop offset="0%" stop-color="#070B17" />
+      <stop offset="100%" stop-color="#12172B" />
     </linearGradient>
-    <linearGradient id="orbit" x1="0%" y1="0%" x2="100%" y2="100%">
+    <radialGradient id="halo" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#070B17" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="brand" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#8B5CF6" />
       <stop offset="100%" stop-color="#22D3EE" />
     </linearGradient>
-    <radialGradient id="glow" cx="50%" cy="40%" r="65%">
-      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.18" />
-      <stop offset="100%" stop-color="#18223F" stop-opacity="0" />
-    </radialGradient>
+    <linearGradient id="accent" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22D3EE" />
+      <stop offset="100%" stop-color="#A855F7" />
+    </linearGradient>
   </defs>
+
   <rect width="64" height="64" rx="16" fill="url(#bg)" />
-  <circle cx="32" cy="32" r="24" fill="url(#glow)" />
-  <path d="M22 25a9 9 0 0 1 9-9h12a9 9 0 0 1 9 9v8a9 9 0 0 1-9 9h-6l-5 5v-5h-4a9 9 0 0 1-9-9v-8Z" fill="#8B5CF6" />
-  <circle cx="25" cy="25" r="4.5" fill="#F8FAFC" />
-  <circle cx="39" cy="23" r="3.5" fill="#F8FAFC" />
-  <path d="M22 34c4-4 10-6 15-6s11 2 15 6" fill="none" stroke="#22D3EE" stroke-width="2.2" stroke-linecap="round" opacity="0.75" />
-  <path d="M12 25c10-11 25-12 36-3" fill="none" stroke="url(#orbit)" stroke-width="4" stroke-linecap="round" />
-  <path d="M52 45c-10 11-25 12-36 3" fill="none" stroke="url(#orbit)" stroke-width="4" stroke-linecap="round" />
+  <circle cx="32" cy="32" r="22" fill="url(#halo)" />
+  <path d="M22 24c0-6 4.5-10 10-10h8c5.5 0 10 4 10 10v6c0 6-4.5 10-10 10h-6l-4 4v-4h-4c-5.5 0-10-4-10-10v-6Z" fill="url(#brand)" opacity="0.95" />
+  <path d="M24 25a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Zm14-3.5a2.8 2.8 0 1 1 0-5.6 2.8 2.8 0 0 1 0 5.6Z" fill="#F8FAFC" opacity="0.88" />
+  <path d="M15 28c6-9 22-10 34-2" fill="none" stroke="url(#accent)" stroke-width="4" stroke-linecap="round" opacity="0.95" />
+  <path d="M18 42c8-11 22-14 30-8" fill="none" stroke="url(#brand)" stroke-width="3" stroke-linecap="round" opacity="0.75" />
 </svg>

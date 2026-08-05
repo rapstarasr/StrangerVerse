@@ -39,11 +39,11 @@ export default function Sidebar({
         aria-hidden={!isOpen}
       />
 
-      <aside className={`fixed inset-y-0 left-0 z-50 w-full max-w-xs transform border-r border-[color:var(--border)] bg-[color:var(--surface)] text-[color:var(--foreground)] p-5 shadow-2xl transition-transform duration-300 md:static md:translate-x-0 md:h-screen md:w-72 ${isOpen ? "translate-x-0" : "-translate-x-full"}`}>
-        <div className="flex items-center justify-between gap-4">
+      <aside className={`fixed inset-y-0 left-0 z-50 w-full max-w-xs transform border-r border-[color:var(--border)] bg-[color:var(--surface)] text-[color:var(--foreground)] p-6 shadow-[0_35px_80px_rgba(0,0,0,0.35)] transition-transform duration-300 md:static md:translate-x-0 md:h-screen md:w-80 xl:w-96 ${isOpen ? "translate-x-0" : "-translate-x-full"}`}>
+        <div className="flex flex-col gap-4">
           <div>
-            <p className="text-xs uppercase tracking-[0.28em] text-cyan-500">StrangerVerse</p>
-            <h1 className="mt-3 text-3xl font-bold text-[color:var(--foreground)]">StrangerVerse</h1>
+            <p className="text-xs uppercase tracking-[0.28em] text-cyan-400">StrangerVerse</p>
+            <h1 className="mt-3 text-4xl font-bold text-[color:var(--foreground)]">StrangerVerse</h1>
           </div>
           <button
             type="button"
@@ -58,13 +58,13 @@ export default function Sidebar({
         <div className="mt-8 space-y-4">
           <button
             onClick={onFindStranger}
-            className="w-full rounded-3xl bg-gradient-to-r from-violet-500 to-cyan-500 px-4 py-4 text-sm font-semibold text-white transition hover:-translate-y-0.5"
+            className="w-full rounded-[28px] bg-gradient-to-r from-[#8B5CF6] via-[#7C3AED] to-[#22D3EE] px-5 py-4 text-sm font-semibold text-white shadow-[0_20px_40px_rgba(34,211,238,0.18)] transition hover:brightness-110"
           >
             🔍 Find Stranger
           </button>
           <button
             onClick={onNext}
-            className="w-full rounded-3xl border border-[color:var(--border)] bg-[color:var(--surface-muted)] px-4 py-4 text-sm font-semibold text-[color:var(--foreground)] transition hover:border-violet-400 hover:text-violet-600"
+            className="w-full rounded-[28px] border border-[color:var(--border)] bg-[color:var(--surface-muted)] px-5 py-4 text-sm font-semibold text-[color:var(--foreground)] transition hover:border-[#8B5CF6] hover:text-[#8B5CF6]"
           >
             ⏭ Next Stranger
           </button>
@@ -72,12 +72,12 @@ export default function Sidebar({
 
         <div className="mt-8 grid gap-3">
           <div className="rounded-3xl border border-[color:var(--border)] bg-[color:var(--surface-muted)] p-4 text-sm shadow-sm">
-            <p className="text-slate-500">Online users</p>
+            <p className="text-slate-400">Online users</p>
             <p className="mt-3 text-2xl font-semibold text-[color:var(--foreground)]">{onlineUsers}</p>
           </div>
           <div className="rounded-3xl border border-[color:var(--border)] bg-[color:var(--surface-muted)] p-4 text-sm shadow-sm">
-            <p className="text-slate-500">Connection status</p>
-            <p className="mt-3 text-2xl font-semibold text-emerald-500">{status}</p>
+            <p className="text-slate-400">Connection status</p>
+            <p className="mt-3 text-2xl font-semibold text-[#22D3EE]">{status}</p>
           </div>
         </div>
 

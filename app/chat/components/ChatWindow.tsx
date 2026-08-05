@@ -62,7 +62,7 @@ function ChatWindow({
     return (
       <div className="flex-1 min-h-0 overflow-hidden bg-[color:var(--surface)] text-[color:var(--foreground)]">
         <div className="flex h-full min-h-[280px] items-center justify-center px-6 text-center">
-          <p className="text-lg font-semibold text-slate-500">{emptyMessage}</p>
+          <p className="text-lg font-semibold text-slate-400">{emptyMessage}</p>
         </div>
       </div>
     );
@@ -96,11 +96,11 @@ function ChatWindow({
 
         {typing ? (
           <div className="mb-4 flex justify-start" aria-live="polite">
-            <div className="rounded-[24px] bg-[color:var(--surface-muted)] px-4 py-3 text-sm text-slate-500 shadow-sm">
+            <div className="rounded-[24px] bg-[color:var(--surface-muted)] px-4 py-3 text-sm text-slate-400 shadow-[0_28px_80px_rgba(0,0,0,0.18)]">
               <span className="inline-flex gap-2">
-                <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-slate-500" />
-                <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-slate-500 [animation-delay:120ms]" />
-                <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-slate-500 [animation-delay:240ms]" />
+                <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-[#8B5CF6]" />
+                <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-[#8B5CF6] [animation-delay:120ms]" />
+                <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-[#8B5CF6] [animation-delay:240ms]" />
               </span>
             </div>
           </div>

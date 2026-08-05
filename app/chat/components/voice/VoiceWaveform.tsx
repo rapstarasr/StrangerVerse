@@ -15,7 +15,7 @@ function VoiceWaveform({ isPlaying, isYou, progress, bars = defaultBars }: Voice
   const activeCount = Math.max(1, Math.round((progress / 100) * bars.length));
 
   return (
-    <div className="flex h-12 items-end gap-1 overflow-hidden rounded-full bg-black/5 px-2 py-2">
+    <div className="flex h-12 items-end gap-1 overflow-hidden rounded-full bg-[rgba(255,255,255,0.04)] px-2 py-2">
       {bars.map((height, index) => {
         const isActive = index < activeCount;
         const barHeight = isActive ? Math.max(10, height + (isPlaying ? 6 : 0)) : Math.max(8, height * 0.7);
@@ -23,7 +23,7 @@ function VoiceWaveform({ isPlaying, isYou, progress, bars = defaultBars }: Voice
         return (
           <span
             key={`${height}-${index}`}
-            className={`block w-1.5 rounded-full transition-all duration-200 ${isActive ? (isYou ? "bg-white" : "bg-purple-600") : isYou ? "bg-white/40" : "bg-slate-300"}`}
+            className={`block w-1.5 rounded-full transition-all duration-200 ${isActive ? (isYou ? "bg-white" : "bg-[#22D3EE]") : isYou ? "bg-white/40" : "bg-[rgba(255,255,255,0.14)]"}`}
             style={{
               height: `${barHeight}px`,
               opacity: isPlaying ? 1 : 0.7,

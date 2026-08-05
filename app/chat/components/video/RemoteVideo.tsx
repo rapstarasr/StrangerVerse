@@ -9,10 +9,10 @@ type RemoteVideoProps = {
 };
 
 export function RemoteVideo({ remoteStream, isAudioOnly, darkMode, title, videoRef }: RemoteVideoProps) {
-  const overlayClass = darkMode ? "bg-slate-950/70 text-slate-100" : "bg-white/80 text-slate-700";
+  const overlayClass = "bg-[#070B17]/85 text-slate-100";
 
   return (
-    <div className={`flex h-full min-h-[300px] items-center justify-center overflow-hidden rounded-[24px] border ${darkMode ? "border-slate-800 bg-slate-950" : "border-slate-200 bg-slate-100"}`}>
+    <div className="flex h-full min-h-[300px] items-center justify-center overflow-hidden rounded-[24px] border border-[rgba(255,255,255,0.08)] bg-[#090B17]">
       {remoteStream ? (
         <video ref={videoRef} autoPlay playsInline className="h-full w-full object-cover" />
       ) : (

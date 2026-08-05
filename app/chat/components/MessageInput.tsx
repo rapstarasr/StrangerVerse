@@ -185,14 +185,14 @@ function MessageInput({
       ) : null}
 
       {replyTo ? (
-        <div className="mb-3 rounded-3xl border border-violet-500/20 bg-[color:var(--surface-muted)] px-4 py-3 text-sm text-[color:var(--foreground)] shadow-sm">
+        <div className="mb-3 rounded-3xl border border-[rgba(139,92,246,0.22)] bg-[#111827] px-4 py-3 text-sm text-[color:var(--foreground)] shadow-sm">
           <div className="flex items-center justify-between gap-3">
             <div className="flex min-w-0 items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-violet-500/10 text-violet-500">
+              <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[rgba(139,92,246,0.14)] text-[#8B5CF6]">
                 {replyIcon}
               </div>
               <div className="min-w-0">
-                <p className="truncate font-semibold text-slate-200">Replying to {replyTo.sender === "you" ? "you" : replyTo.sender === "stranger" ? "stranger" : "system"}</p>
+                <p className="truncate font-semibold text-slate-100">Replying to {replyTo.sender === "you" ? "you" : replyTo.sender === "stranger" ? "stranger" : "system"}</p>
                 <p className="mt-1 truncate text-sm text-slate-400">{replyPreviewText}</p>
               </div>
             </div>
@@ -261,7 +261,7 @@ function MessageInput({
           onChange={(event) => onChange(event.target.value)}
           onKeyDown={handleInputKeyDown}
           placeholder="Type a message..."
-          className="min-w-0 flex-1 rounded-full border border-[color:var(--border)] bg-[color:var(--surface-muted)] px-4 py-3 text-sm text-[color:var(--foreground)] outline-none placeholder:text-slate-500 transition focus:border-violet-400 focus:ring-2 focus:ring-violet-500/10"
+          className="min-w-0 flex-1 rounded-full border border-[color:var(--border)] bg-[color:var(--surface-muted)] px-4 py-3 text-sm text-[color:var(--foreground)] outline-none placeholder:text-slate-500 transition focus:border-[#8B5CF6] focus:ring-2 focus:ring-[#8B5CF6]/15"
           aria-label="Message input"
           disabled={isRecording}
         />

@@ -33,21 +33,21 @@
   --glass-border: rgba(255, 255, 255, 0.14);
   --glass-blur: blur(24px);
 
-  --gradient-brand: linear-gradient(135deg, #7C3AED 0%, #38BDF8 100%);
+  --gradient-brand: linear-gradient(135deg, #8B5CF6 0%, #22D3EE 100%);
   --gradient-accent: linear-gradient(135deg, #8B5CF6 0%, #22D3EE 100%);
-  --gradient-surface: radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 42%), radial-gradient(circle at bottom right, rgba(139, 92, 246, 0.12), transparent 35%);
+  --gradient-surface: radial-gradient(circle at top left, rgba(34, 211, 238, 0.16), transparent 32%), radial-gradient(circle at bottom right, rgba(139, 92, 246, 0.16), transparent 28%);
 
-  --brand-background: #090B17;
-  --background: #f8fafc;
-  --foreground: #0f172a;
-  --surface: #ffffff;
-  --surface-muted: #f8fafc;
-  --border: rgba(15, 23, 42, 0.12);
-  --shadow: rgba(15, 23, 42, 0.18);
+  --brand-background: #070B17;
+  --background: #070B17;
+  --foreground: #F8FAFC;
+  --surface: #101827;
+  --surface-muted: #0E182A;
+  --border: rgba(255, 255, 255, 0.06);
+  --shadow: rgba(0, 0, 0, 0.45);
 
-  --brand-primary: #7C3AED;
+  --brand-primary: #8B5CF6;
   --brand-purple: #8B5CF6;
-  --brand-blue: #38BDF8;
+  --brand-blue: #22D3EE;
   --brand-cyan: #22D3EE;
   --success: #22C55E;
   --text-muted: #94A3B8;
@@ -56,14 +56,21 @@
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --background: #090B17;
+  --background: #070B17;
   --foreground: #F8FAFC;
-  --surface: #111827;
-  --surface-muted: #0f172a;
-  --border: rgba(148, 163, 184, 0.16);
+  --surface: #101827;
+  --surface-muted: #0E182A;
+  --border: rgba(255, 255, 255, 0.08);
   --shadow: rgba(0, 0, 0, 0.45);
   --glass-surface: rgba(255, 255, 255, 0.08);
-  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --brand-background: #070B17;
+  --brand-primary: #8B5CF6;
+  --brand-purple: #8B5CF6;
+  --brand-blue: #22D3EE;
+  --brand-cyan: #22D3EE;
+  --text-muted: #94A3B8;
+  --text-inverse: #F8FAFC;
 }
 
 :root[data-theme="light"] {

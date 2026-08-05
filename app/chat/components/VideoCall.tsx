@@ -61,7 +61,7 @@ function VideoCall({
   }, [accepted, direction, rtc.answerIncomingCall, rtc.callState, rtc.startOutgoingCall]);
 
   const panelClasses = useMemo(
-    () => (darkMode ? "border-slate-700 bg-slate-950 text-slate-50" : "border-slate-200 bg-white text-slate-900"),
+    () => "border-[rgba(255,255,255,0.08)] bg-[#070B17] text-slate-50",
     [darkMode]
   );
 
@@ -90,9 +90,9 @@ function VideoCall({
     if (direction === "outgoing" && !accepted) {
       return (
         <div className="absolute inset-0 flex items-center justify-center bg-slate-950/70 p-6 text-center backdrop-blur-sm">
-          <div className="rounded-[24px] border border-slate-700 bg-slate-900/90 px-6 py-8 shadow-2xl">
-            <div className="mx-auto mb-3 flex h-12 w-12 animate-spin items-center justify-center rounded-full border-2 border-sky-500 border-t-transparent" />
-            <p className="text-lg font-semibold">Calling {title}</p>
+          <div className="rounded-[24px] border border-[rgba(255,255,255,0.08)] bg-[#0B1222]/90 px-6 py-8 shadow-[0_35px_90px_rgba(0,0,0,0.28)]">
+            <div className="mx-auto mb-3 flex h-12 w-12 animate-spin items-center justify-center rounded-full border-2 border-[#22D3EE] border-t-transparent" />
+            <p className="text-lg font-semibold text-white">Calling {title}</p>
             <p className="mt-2 text-sm text-slate-400">Waiting for the stranger to accept.</p>
           </div>
         </div>
@@ -102,10 +102,10 @@ function VideoCall({
     if (rtc.callState === "ended") {
       return (
         <div className="absolute inset-0 flex items-center justify-center bg-slate-950/80 p-6 text-center">
-          <div className="rounded-3xl border border-slate-700 bg-slate-900/90 px-6 py-8 shadow-2xl">
-            <p className="text-lg font-semibold">Call ended</p>
+          <div className="rounded-3xl border border-[rgba(255,255,255,0.08)] bg-[#0B1222]/90 px-6 py-8 shadow-[0_35px_90px_rgba(0,0,0,0.28)]">
+            <p className="text-lg font-semibold text-white">Call ended</p>
             <p className="mt-2 text-sm text-slate-400">The conversation is wrapped up.</p>
-            <button className="mt-5 rounded-full bg-sky-500 px-4 py-2 text-sm font-medium text-white" onClick={onEnd}>Close</button>
+            <button className="mt-5 rounded-full bg-gradient-to-r from-[#8B5CF6] to-[#22D3EE] px-4 py-2 text-sm font-medium text-white" onClick={onEnd}>Close</button>
           </div>
         </div>
       );
@@ -139,7 +139,7 @@ function VideoCall({
         {renderOverlay()}
       </div>
 
-      <div className="border-t border-slate-800/80 bg-slate-900/90 px-4 py-3">
+      <div className="border-t border-[rgba(255,255,255,0.08)] bg-[#090B17]/90 px-4 py-3">
         <div className="mb-3 flex items-center justify-between gap-3">
           <CallTimer startedAt={rtc.startedAt} darkMode={darkMode} />
           <NetworkIndicator quality={rtc.networkQuality} darkMode={darkMode} label={getNetworkLabel(rtc.networkQuality)} />

@@ -60,7 +60,7 @@ function MessageActions({
   });
 
   const panelClass = useMemo(
-    () => (darkMode ? "border-slate-700 bg-slate-900 text-slate-50" : "border-slate-200 bg-white text-slate-900"),
+    () => (darkMode ? "border-[rgba(255,255,255,0.08)] bg-[#0F172A] text-slate-50" : "border-[rgba(255,255,255,0.08)] bg-[#0F172A] text-slate-50"),
     [darkMode]
   );
 
@@ -125,7 +125,7 @@ function MessageActions({
     <div className="relative inline-flex items-center gap-2">
       <button
         type="button"
-        className={`rounded-full px-2.5 py-1.5 text-xs font-medium transition ${darkMode ? "bg-slate-800 text-slate-100 hover:bg-slate-700" : "bg-slate-100 text-slate-700 hover:bg-slate-200"}`}
+        className="rounded-full px-2.5 py-1.5 text-xs font-medium transition bg-[rgba(139,92,246,0.12)] text-white hover:bg-[rgba(139,92,246,0.18)]"
         onClick={() => setMenuOpen((value) => !value)}
         onContextMenu={(event) => {
           event.preventDefault();

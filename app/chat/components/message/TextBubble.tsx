@@ -13,7 +13,7 @@ function TextBubble({ text, isYou }: TextBubbleProps) {
   const parts = text.split(linkPattern);
 
   return (
-    <p className={`whitespace-pre-wrap break-words text-[15px] leading-6 ${isYou ? "text-white" : "text-slate-900"}`}>
+    <p className={`whitespace-pre-wrap break-words text-[15px] leading-6 ${isYou ? "text-white" : "text-slate-300"}`}>
       {parts.map((part, index) => {
         if (!part) {
           return null;
@@ -26,7 +26,7 @@ function TextBubble({ text, isYou }: TextBubbleProps) {
               href={part}
               target="_blank"
               rel="noopener noreferrer"
-              className={`break-all underline decoration-2 underline-offset-2 ${isYou ? "text-white/90" : "text-purple-700"}`}
+              className={`break-all underline decoration-2 underline-offset-2 ${isYou ? "text-white/90" : "text-cyan-300"}`}
             >
               {part}
             </a>

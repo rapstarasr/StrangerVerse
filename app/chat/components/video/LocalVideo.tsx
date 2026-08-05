@@ -11,7 +11,7 @@ type LocalVideoProps = {
 };
 
 export function LocalVideo({ localStream, isMuted, isCameraOff, isAudioOnly, isScreenSharing, darkMode, videoRef }: LocalVideoProps) {
-  const containerClass = darkMode ? "border-slate-700 bg-slate-900/90" : "border-slate-200 bg-slate-50";
+  const containerClass = "border-[rgba(255,255,255,0.08)] bg-[#0F172A]/95";
 
   return (
     <div className={`absolute bottom-4 right-4 w-32 overflow-hidden rounded-2xl border shadow-xl md:w-40 ${containerClass}`}>
@@ -27,7 +27,7 @@ export function LocalVideo({ localStream, isMuted, isCameraOff, isAudioOnly, isS
           {isCameraOff ? "Camera off" : isAudioOnly ? "Audio only" : isScreenSharing ? "Screen shared" : "Camera preview"}
         </div>
       ) : null}
-      <div className={`flex items-center justify-between px-2 py-2 text-[10px] ${darkMode ? "bg-slate-950/80 text-slate-200" : "bg-white/80 text-slate-700"}`}>
+      <div className="flex items-center justify-between px-2 py-2 text-[10px] bg-[#090B17]/85 text-slate-200">
         <span>You</span>
         <span>{isMuted ? "Muted" : isScreenSharing ? "Sharing" : "Live"}</span>
       </div>

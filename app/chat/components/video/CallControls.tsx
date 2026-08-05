@@ -27,7 +27,7 @@ type CallControlsProps = {
 };
 
 const buttonClass = (active: boolean, darkMode: boolean) =>
-  `rounded-full px-3 py-2 text-sm font-medium transition ${active ? "bg-sky-500 text-white" : darkMode ? "bg-slate-800 text-slate-100" : "bg-slate-100 text-slate-700"}`;
+  `rounded-full px-3 py-2 text-sm font-medium transition ${active ? "bg-[#22D3EE] text-slate-950" : "bg-[#111827] text-white hover:bg-[#1b2541]"}`;
 
 export function CallControls(props: CallControlsProps) {
   const { darkMode } = props;
@@ -51,10 +51,10 @@ export function CallControls(props: CallControlsProps) {
       {props.showIncomingActions ? (
         <>
           <button className="rounded-full bg-rose-500 px-3 py-2 text-sm font-medium text-white" onClick={props.onDecline}>Decline</button>
-          <button className="rounded-full bg-emerald-500 px-3 py-2 text-sm font-medium text-white" onClick={props.onAccept}>Accept</button>
+          <button className="rounded-full bg-gradient-to-r from-[#8B5CF6] to-[#22D3EE] px-3 py-2 text-sm font-medium text-white" onClick={props.onAccept}>Accept</button>
         </>
       ) : null}
-      <button className="rounded-full bg-amber-500 px-3 py-2 text-sm font-medium text-white" onClick={props.onEnd}>End</button>
+      <button className="rounded-full bg-[rgba(139,92,246,0.18)] px-3 py-2 text-sm font-medium text-white" onClick={props.onEnd}>End</button>
     </div>
   );
 }

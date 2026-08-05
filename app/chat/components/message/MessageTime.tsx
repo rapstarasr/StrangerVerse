@@ -8,7 +8,7 @@ type MessageTimeProps = {
 };
 
 function MessageTime({ time, isYou }: MessageTimeProps) {
-  return <span className={isYou ? "text-white/80" : "text-slate-500"}>{time}</span>;
+  return <span className={isYou ? "text-white/80" : "text-slate-400"}>{time}</span>;
 }
 
 export default memo(MessageTime);

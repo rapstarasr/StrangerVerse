@@ -69,14 +69,14 @@ export default function Header({
             </button>
           ) : null}
 
-          <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-violet-500/10 text-violet-500">
+          <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-[rgba(139,92,246,0.12)] text-[#8B5CF6] shadow-[0_20px_60px_rgba(139,92,246,0.18)]">
             <span className="text-lg font-semibold">S</span>
           </div>
 
           <div className="min-w-0">
-            <p className="text-xs uppercase tracking-[0.32em] text-slate-500">StrangerVerse</p>
+            <p className="text-xs uppercase tracking-[0.32em] text-slate-400">StrangerVerse</p>
             <div className="truncate text-lg font-semibold text-[color:var(--foreground)]">Stranger</div>
-            <p className="text-sm text-emerald-500">{statusLabel(status)}</p>
+            <p className="text-sm text-[#22D3EE]">{statusLabel(status)}</p>
           </div>
         </div>
 
@@ -113,14 +113,14 @@ export default function Header({
           <button
             type="button"
             onClick={() => setMenuOpen((current) => !current)}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-3xl border border-[color:var(--border)] bg-[color:var(--surface-muted)] text-[color:var(--foreground)] transition hover:bg-[color:var(--surface)]"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-3xl border border-[color:var(--border)] bg-[color:var(--surface-muted)] text-[color:var(--foreground)] transition hover:bg-[rgba(139,92,246,0.12)]"
             aria-label="Open actions menu"
           >
             <MoreVertical className="h-5 w-5" />
           </button>
 
           {menuOpen ? (
-            <div className="absolute right-0 top-full z-20 mt-2 w-64 overflow-hidden rounded-[28px] border border-[color:var(--border)] bg-[color:var(--surface)] shadow-xl">
+            <div className="absolute right-0 top-full z-20 mt-2 w-64 overflow-hidden rounded-[28px] border border-[color:var(--border)] bg-[color:var(--surface)] shadow-[0_30px_90px_rgba(0,0,0,0.24)]">
               <div className="flex flex-col gap-1 p-3 text-left text-sm text-[color:var(--foreground)]">
                 <button
                   type="button"
@@ -153,7 +153,7 @@ export default function Header({
                   Theme: {themeLabel}
                 </button>
               </div>
-              <div className="border-t border-[color:var(--border)] p-3 text-sm text-slate-500">
+              <div className="border-t border-[color:var(--border)] p-3 text-sm text-slate-400">
                 <div className="mb-2 flex items-center gap-2 text-[color:var(--foreground)]">
                   <Users2 className="h-4 w-4 text-cyan-500" />
                   <span>{onlineUsers} online</span>
@@ -166,8 +166,8 @@ export default function Header({
       </div>
 
       {typing ? (
-        <div className="mt-3 flex items-center gap-2 rounded-[24px] border border-[color:var(--border)] bg-[color:var(--surface-muted)] px-4 py-3 text-sm text-slate-500">
-          <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-slate-500" />
+        <div className="mt-3 flex items-center gap-2 rounded-[24px] border border-[color:var(--border)] bg-[color:var(--surface-muted)] px-4 py-3 text-sm text-slate-400 shadow-[0_24px_70px_rgba(0,0,0,0.15)]">
+          <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-[#22D3EE]" />
           <span>Stranger is typing…</span>
         </div>
       ) : null}

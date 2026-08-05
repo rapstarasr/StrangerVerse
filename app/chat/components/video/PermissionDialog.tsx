@@ -6,7 +6,7 @@ type PermissionDialogProps = {
 
 export function PermissionDialog({ error, onRetry, darkMode }: PermissionDialogProps) {
   return (
-    <div className={`absolute inset-4 flex items-center justify-center rounded-3xl border p-6 text-center ${darkMode ? "border-slate-700 bg-slate-950/90 text-slate-100" : "border-slate-200 bg-white/90 text-slate-900"}`}>
+    <div className="absolute inset-4 flex items-center justify-center rounded-3xl border border-[rgba(255,255,255,0.12)] bg-[#070B17]/90 p-6 text-center text-slate-100">
       <div className="max-w-sm">
         <p className="text-lg font-semibold">Permission required</p>
         <p className="mt-2 text-sm opacity-80">{error}</p>

@@ -6,16 +6,16 @@ type CallHeaderProps = {
 };
 
 export function CallHeader({ title, status, darkMode, connectionState }: CallHeaderProps) {
-  const textClass = darkMode ? "text-slate-100" : "text-slate-900";
-  const mutedClass = darkMode ? "text-slate-400" : "text-slate-600";
+  const textClass = "text-slate-100";
+  const mutedClass = "text-slate-400";
 
   return (
-    <div className={`flex items-center justify-between border-b px-4 py-3 ${darkMode ? "border-slate-800 bg-slate-900/90" : "border-slate-200 bg-slate-50"}`}>
+    <div className="flex items-center justify-between border-b border-[rgba(255,255,255,0.08)] bg-[#0B1222] px-4 py-3">
       <div>
         <p className={`text-sm font-semibold ${textClass}`}>{title}</p>
         <p className={`text-xs ${mutedClass}`}>{status}</p>
       </div>
-      <div className={`rounded-full border px-3 py-1 text-xs font-medium ${darkMode ? "border-slate-700 bg-slate-800 text-slate-200" : "border-slate-300 bg-white text-slate-700"}`}>
+      <div className="rounded-full border border-[rgba(139,92,246,0.24)] bg-[rgba(139,92,246,0.12)] px-3 py-1 text-xs font-medium text-[#22D3EE]">
         {connectionState}
       </div>
     </div>

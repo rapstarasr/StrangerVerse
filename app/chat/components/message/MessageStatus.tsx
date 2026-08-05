@@ -22,7 +22,7 @@ function MessageStatus({ status, isYou }: MessageStatusProps) {
     retry: "↻",
   }[status];
 
-  return <span className={`min-w-[16px] text-center text-[11px] ${isYou ? "text-white/85" : "text-slate-500"}`}>{statusLabel}</span>;
+  return <span className={`min-w-[16px] text-center text-[11px] ${isYou ? "text-white/85" : "text-slate-400"}`}>{statusLabel}</span>;
 }
 
 export default memo(MessageStatus);

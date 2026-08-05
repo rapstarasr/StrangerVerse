@@ -247,10 +247,10 @@ function VoiceMessageBubble({ src, sender, status = "ready", className = "" }: V
 
   const bubbleClassName = useMemo(
     () =>
-      `group relative w-[min(100%,360px)] rounded-[24px] p-3 shadow-sm outline-none transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-offset-2 sm:max-w-[380px] ${
+      `group relative w-[min(100%,360px)] rounded-[24px] p-3 shadow-[0_25px_70px_rgba(0,0,0,0.22)] outline-none transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_30px_90px_rgba(0,0,0,0.28)] focus-visible:ring-2 focus-visible:ring-offset-2 sm:max-w-[380px] ${
         isYou
-          ? "bg-gradient-to-br from-[#25D366] to-[#22c55e] text-white shadow-green-500/20 focus-visible:ring-white/80"
-          : "bg-white text-slate-900 shadow-slate-200/80 focus-visible:ring-purple-600"
+          ? "bg-gradient-to-br from-[#8B5CF6] to-[#22D3EE] text-white focus-visible:ring-white/80"
+          : "bg-[#111827] text-slate-100 focus-visible:ring-[#8B5CF6]"
       } ${className}`,
     [className, isYou]
   );
@@ -281,7 +281,7 @@ function VoiceMessageBubble({ src, sender, status = "ready", className = "" }: V
             {isYou ? <span className="text-[12px] tracking-[0.2em]">✓✓</span> : null}
           </div>
 
-          <div className="mb-2 h-1 overflow-hidden rounded-full bg-black/10">
+          <div className="mb-2 h-1 overflow-hidden rounded-full bg-[rgba(255,255,255,0.08)]">
             <div className="h-full rounded-full bg-current transition-all duration-200" style={{ width: `${Math.max(0, Math.min(progress, 100))}%` }} />
           </div>
 
@@ -294,7 +294,7 @@ function VoiceMessageBubble({ src, sender, status = "ready", className = "" }: V
         </div>
       </div>
 
-      {visibleError ? <p className={`mt-2 text-xs font-medium ${isYou ? "text-white/85" : "text-red-600"}`}>{visibleError}</p> : null}
+      {visibleError ? <p className={`mt-2 text-xs font-medium ${isYou ? "text-white/85" : "text-[#F87171]"}`}>{visibleError}</p> : null}
     </div>
   );
 }
