@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import ChatWindow from "./components/ChatWindow";
 import MessageInput from "./components/MessageInput";
 import VideoCall from "./components/VideoCall";
+import WorkspacePanel from "./components/WorkspacePanel";
 import { useChat } from "./hooks/useChat";
 
 type ThemeMode = "system" | "light" | "dark";
@@ -86,25 +87,35 @@ export default function ChatClient() {
           onNext={nextStranger}
         />
 
-        <ChatWindow
-          messages={messages}
-          typing={typing}
-          emptyMessage="Find a stranger to begin chatting."
-          onReply={handleReply}
-          onReact={handleReactToMessage}
-        />
+        <div className="flex min-h-0 flex-1 flex-col xl:flex-row xl:items-stretch">
+          <section className="min-h-0 flex-1 overflow-hidden xl:border-r xl:border-[color:var(--border)] xl:bg-[color:var(--surface)] xl:shadow-[var(--shadow-low)]">
+            <ChatWindow
+              messages={messages}
+              typing={typing}
+              emptyMessage="Find a stranger to begin chatting."
+              onReply={handleReply}
+              onReact={handleReactToMessage}
+            />
+            <MessageInput
+              message={message}
+              selectedFile={selectedFile}
+              onChange={handleTyping}
+              onSend={sendMessage}
+              onFileSelect={handleFileSelect}
+              onClearFile={clearSelectedFile}
+              onVoiceRecorded={handleVoiceRecorded}
+              replyTo={replyTo}
+              onCancelReply={clearReply}
+            />
+          </section>
 
-        <MessageInput
-          message={message}
-          selectedFile={selectedFile}
-          onChange={handleTyping}
-          onSend={sendMessage}
-          onFileSelect={handleFileSelect}
-          onClearFile={clearSelectedFile}
-          onVoiceRecorded={handleVoiceRecorded}
-          replyTo={replyTo}
-          onCancelReply={clearReply}
-        />
+          <WorkspacePanel
+            onlineUsers={onlineUsers}
+            status={status}
+            onFindStranger={findStranger}
+            onNext={nextStranger}
+          />
+        </div>
       </main>
 
       {activeCall ? (
