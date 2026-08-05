@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 const fs = require('fs');
 const path = require('path');
+const sharp = require('sharp');
 
 const publicDir = path.resolve(__dirname, '../public');
 
@@ -10,6 +11,45 @@ const writeFile = (filePath, content) => {
 };
 
 const createSvgFile = (name, content) => writeFile(path.join(publicDir, name), content);
+
+const createPngFromSvg = async (name, svg, size) => {
+  await sharp(Buffer.from(svg))
+    .resize(size, size, {
+      fit: 'contain',
+      background: { r: 0, g: 0, b: 0, alpha: 0 },
+    })
+    .png()
+    .toFile(path.join(publicDir, name));
+  console.log(`Created ${name}`);
+};
+
+const createIcoFromPngs = async (name, pngBuffers) => {
+  const count = pngBuffers.length;
+  const header = Buffer.alloc(6);
+  header.writeUInt16LE(0, 0);
+  header.writeUInt16LE(1, 2);
+  header.writeUInt16LE(count, 4);
+
+  const dirEntries = Buffer.alloc(16 * count);
+  let offset = 6 + 16 * count;
+
+  pngBuffers.forEach((item, index) => {
+    const entry = dirEntries.slice(index * 16, index * 16 + 16);
+    entry.writeUInt8(item.size === 256 ? 0 : item.size, 0);
+    entry.writeUInt8(item.size === 256 ? 0 : item.size, 1);
+    entry.writeUInt8(0, 2);
+    entry.writeUInt8(0, 3);
+    entry.writeUInt16LE(1, 4);
+    entry.writeUInt16LE(32, 6);
+    entry.writeUInt32LE(item.buffer.length, 8);
+    entry.writeUInt32LE(offset, 12);
+    offset += item.buffer.length;
+  });
+
+  const icoBuffer = Buffer.concat([header, dirEntries, ...pngBuffers.map((item) => item.buffer)]);
+  fs.writeFileSync(path.join(publicDir, name), icoBuffer);
+  console.log(`Created ${name}`);
+};
 
 const ogImage = `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="StrangerVerse preview">
@@ -59,36 +99,48 @@ const ogImage = `<?xml version="1.0" encoding="UTF-8"?>
 const favicon = `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="StrangerVerse icon">
   <defs>
-    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#7C3AED" />
-      <stop offset="50%" stop-color="#38BDF8" />
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#20345B" />
+      <stop offset="100%" stop-color="#18223F" />
+    </linearGradient>
+    <linearGradient id="orbit" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6" />
       <stop offset="100%" stop-color="#22D3EE" />
     </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#18223F" stop-opacity="0" />
+    </radialGradient>
   </defs>
-  <rect width="64" height="64" rx="16" fill="#090B17" />
-  <circle cx="32" cy="32" r="18" fill="none" stroke="url(#g)" stroke-width="5" opacity="0.92" />
-  <circle cx="24" cy="26" r="4" fill="#F8FAFC" />
-  <circle cx="40" cy="24" r="3.5" fill="#F8FAFC" />
-  <circle cx="36" cy="40" r="3.5" fill="#F8FAFC" />
-  <path d="M22 38c4-4 9-6 14-6s10 2 14 6" fill="none" stroke="#8B5CF6" stroke-width="2.5" stroke-linecap="round" opacity="0.8" />
+  <rect width="64" height="64" rx="16" fill="url(#bg)" />
+  <circle cx="32" cy="32" r="24" fill="url(#glow)" />
+  <path d="M22 25a9 9 0 0 1 9-9h12a9 9 0 0 1 9 9v8a9 9 0 0 1-9 9h-6l-5 5v-5h-4a9 9 0 0 1-9-9v-8Z" fill="#8B5CF6" />
+  <circle cx="25" cy="25" r="4.5" fill="#F8FAFC" />
+  <circle cx="39" cy="23" r="3.5" fill="#F8FAFC" />
+  <path d="M22 34c4-4 10-6 15-6s11 2 15 6" fill="none" stroke="#22D3EE" stroke-width="2.2" stroke-linecap="round" opacity="0.75" />
+  <path d="M12 25c10-11 25-12 36-3" fill="none" stroke="url(#orbit)" stroke-width="4" stroke-linecap="round" />
+  <path d="M52 45c-10 11-25 12-36 3" fill="none" stroke="url(#orbit)" stroke-width="4" stroke-linecap="round" />
 </svg>
 `;
 
 const appleIcon = `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" role="img" aria-label="StrangerVerse icon">
   <defs>
-    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#7C3AED" />
-      <stop offset="50%" stop-color="#38BDF8" />
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#20345B" />
+      <stop offset="100%" stop-color="#18223F" />
+    </linearGradient>
+    <linearGradient id="orbit" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6" />
       <stop offset="100%" stop-color="#22D3EE" />
     </linearGradient>
   </defs>
-  <rect width="180" height="180" rx="36" fill="#090B17" />
-  <circle cx="90" cy="90" r="70" fill="none" stroke="url(#g)" stroke-width="16" opacity="0.9" />
-  <circle cx="70" cy="78" r="12" fill="#F8FAFC" />
-  <circle cx="112" cy="74" r="10" fill="#F8FAFC" />
-  <circle cx="98" cy="108" r="10" fill="#F8FAFC" />
-  <path d="M70 110c8-8 18-12 28-12s20 4 28 12" fill="none" stroke="#8B5CF6" stroke-width="4" stroke-linecap="round" opacity="0.8" />
+  <rect width="180" height="180" rx="36" fill="url(#bg)" />
+  <circle cx="90" cy="90" r="72" fill="none" stroke="url(#orbit)" stroke-width="18" opacity="0.24" />
+  <path d="M50 58a15 15 0 0 1 15-15h20a15 15 0 0 1 15 15v14a15 15 0 0 1-15 15h-10l-8 9v-9h-6a15 15 0 0 1-15-15v-14Z" fill="#8B5CF6" />
+  <circle cx="65" cy="68" r="8" fill="#F8FAFC" />
+  <circle cx="105" cy="66" r="6.5" fill="#F8FAFC" />
+  <path d="M58 100c8-8 18-12 28-12s20 4 28 12" fill="none" stroke="#22D3EE" stroke-width="4" stroke-linecap="round" opacity="0.8" />
 </svg>
 `;
 
@@ -181,15 +233,43 @@ const splashScreen = `<?xml version="1.0" encoding="UTF-8"?>
 </svg>
 `;
 
-createSvgFile('og-image.svg', ogImage);
-createSvgFile('favicon.svg', favicon);
-createSvgFile('apple-touch-icon.png', appleIcon);
-createSvgFile('logo.svg', logoSvg);
-createSvgFile('logo.png', logoSvg);
-createSvgFile('logo-transparent.svg', logoTransparentSvg);
-createSvgFile('logo-transparent.png', logoTransparentSvg);
-createSvgFile('android-chrome-192x192.png', logoSvg);
-createSvgFile('android-chrome-512x512.png', logoSvg);
-createSvgFile('splash-screen.svg', splashScreen);
+const resizePng = async (svg, size) =>
+  sharp(Buffer.from(svg))
+    .resize(size, size, {
+      fit: 'contain',
+      background: { r: 0, g: 0, b: 0, alpha: 0 },
+    })
+    .png()
+    .toBuffer();
 
-console.log('Public asset generation completed.');
+const run = async () => {
+  createSvgFile('og-image.svg', ogImage);
+  createSvgFile('favicon.svg', favicon);
+  createSvgFile('apple-touch-icon.png', appleIcon);
+  createSvgFile('logo.svg', logoSvg);
+  createSvgFile('logo-transparent.svg', logoTransparentSvg);
+  createSvgFile('splash-screen.svg', splashScreen);
+
+  const faviconSizes = [16, 32, 48];
+  const faviconBuffers = [];
+
+  for (const size of faviconSizes) {
+    const name = `favicon-${size}.png`;
+    const buffer = await resizePng(favicon, size);
+    fs.writeFileSync(path.join(publicDir, name), buffer);
+    console.log(`Created ${name}`);
+    faviconBuffers.push({ size, buffer });
+  }
+
+  await createIcoFromPngs('favicon.ico', faviconBuffers);
+  await sharp(faviconBuffers[1].buffer).resize(192, 192).png().toFile(path.join(publicDir, 'android-chrome-192x192.png'));
+  await sharp(faviconBuffers[2].buffer).resize(512, 512).png().toFile(path.join(publicDir, 'android-chrome-512x512.png'));
+  await sharp(Buffer.from(appleIcon)).resize(180, 180).png().toFile(path.join(publicDir, 'apple-touch-icon.png'));
+
+  console.log('Public asset generation completed.');
+};
+
+run().catch((error) => {
+  console.error(error);
+  process.exit(1);
+});
