@@ -66,14 +66,11 @@ const favicon = `<?xml version="1.0" encoding="UTF-8"?>
     </linearGradient>
   </defs>
   <rect width="64" height="64" rx="16" fill="#090B17" />
-  <circle cx="32" cy="28" r="14" fill="url(#g)" fill-opacity="0.14" />
-  <path d="M17 29c0-6 5-11 11-11s11 5 11 11-5 11-11 11-11-5-11-11Z" fill="none" stroke="url(#g)" stroke-width="2.5" opacity="0.9" />
-  <path d="M16 34c4-6 11-10 18-10s14 4 18 10" fill="none" stroke="#8B5CF6" stroke-width="1.5" opacity="0.55" />
-  <circle cx="23" cy="24" r="4" fill="#fff" />
-  <path d="M19 31c0-2.8 2.2-5 5-5s5 2.2 5 5v1.5h-10V31Z" fill="#fff" opacity="0.88" />
-  <circle cx="40" cy="22" r="3.5" fill="#fff" />
-  <path d="M38 28c0-2.2 1.8-4 4-4s4 1.8 4 4v1h-8v-1Z" fill="#fff" opacity="0.88" />
-  <path d="M40 39h14a5 5 0 0 1 5 5v6a5 5 0 0 1-5 5H42l-4 4v-4H36a5 5 0 0 1-5-5v-6a5 5 0 0 1 5-5Z" fill="url(#g)" fill-opacity="0.2" stroke="url(#g)" stroke-width="1.5" stroke-linejoin="round" />
+  <circle cx="32" cy="32" r="18" fill="none" stroke="url(#g)" stroke-width="5" opacity="0.92" />
+  <circle cx="24" cy="26" r="4" fill="#F8FAFC" />
+  <circle cx="40" cy="24" r="3.5" fill="#F8FAFC" />
+  <circle cx="36" cy="40" r="3.5" fill="#F8FAFC" />
+  <path d="M22 38c4-4 9-6 14-6s10 2 14 6" fill="none" stroke="#8B5CF6" stroke-width="2.5" stroke-linecap="round" opacity="0.8" />
 </svg>
 `;
 
@@ -87,59 +84,74 @@ const appleIcon = `<?xml version="1.0" encoding="UTF-8"?>
     </linearGradient>
   </defs>
   <rect width="180" height="180" rx="36" fill="#090B17" />
-  <circle cx="90" cy="90" r="74" fill="url(#g)" fill-opacity="0.12" />
-  <circle cx="90" cy="90" r="58" stroke="url(#g)" stroke-width="14" fill="none" opacity="0.92" />
-  <circle cx="72" cy="82" r="12" fill="#fff" />
-  <path d="M62 108c0-12 9.5-22 21.5-22S105 96 105 108v20H62v-20Z" fill="#fff" fill-opacity="0.84" />
-  <circle cx="110" cy="78" r="10" fill="#fff" />
-  <path d="M102 98c0-8 6.5-14.5 14.5-14.5S131 90 131 98v14h-29v-14Z" fill="#fff" fill-opacity="0.84" />
-  <path d="M107 120h44a12 12 0 0 1 12 12v20a10 10 0 0 1-10 10H117l-16 14v-14h-6a12 12 0 0 1-12-12v-18a12 12 0 0 1 12-12Z" fill="url(#g)" opacity="0.28" />
+  <circle cx="90" cy="90" r="70" fill="none" stroke="url(#g)" stroke-width="16" opacity="0.9" />
+  <circle cx="70" cy="78" r="12" fill="#F8FAFC" />
+  <circle cx="112" cy="74" r="10" fill="#F8FAFC" />
+  <circle cx="98" cy="108" r="10" fill="#F8FAFC" />
+  <path d="M70 110c8-8 18-12 28-12s20 4 28 12" fill="none" stroke="#8B5CF6" stroke-width="4" stroke-linecap="round" opacity="0.8" />
 </svg>
 `;
 
 const logoSvg = `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="StrangerVerse logo">
   <defs>
-    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="brand" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#7C3AED" />
       <stop offset="45%" stop-color="#8B5CF6" />
       <stop offset="100%" stop-color="#22D3EE" />
     </linearGradient>
-    <radialGradient id="glow" cx="50%" cy="40%" r="80%">
-      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.22" />
+    <radialGradient id="glow" cx="50%" cy="40%" r="85%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.16" />
       <stop offset="100%" stop-color="#090B17" stop-opacity="0" />
     </radialGradient>
+    <linearGradient id="grid" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8FAFC" stop-opacity="0.14" />
+      <stop offset="100%" stop-color="#F8FAFC" stop-opacity="0.04" />
+    </linearGradient>
   </defs>
   <rect width="256" height="256" rx="48" fill="#090B17" />
-  <circle cx="128" cy="128" r="100" fill="url(#glow)" />
-  <path d="M68 76c0-18 15-32 33-32h54c18 0 33 14 33 32v36c0 18-15 32-33 32H144l-14 16a8 8 0 0 1-12-1l-14-15H101c-18 0-33-14-33-32V76Z" fill="#111827" stroke="url(#g)" stroke-width="8" />
-  <circle cx="98" cy="104" r="18" fill="#F8FAFC" />
-  <circle cx="158" cy="96" r="16" fill="#F8FAFC" />
-  <path d="M102 146c0-24 20-44 44-44s44 20 44 44v18H102v-18Z" fill="#F8FAFC" fill-opacity="0.16" />
-  <ellipse cx="128" cy="126" rx="84" ry="86" fill="none" stroke="url(#g)" stroke-width="8" opacity="0.28" />
-  <path d="M52 54c40-28 102-28 142 0" fill="none" stroke="#38BDF8" stroke-width="6" opacity="0.22" stroke-linecap="round" />
+  <circle cx="128" cy="128" r="96" fill="url(#glow)" />
+  <path d="M62 92c0-18 15-32 32-32h68c17 0 32 14 32 32v44c0 18-15 32-32 32h-18l-14 16a8 8 0 0 1-12 0l-14-16H94c-17 0-32-14-32-32V92Z" fill="#111827" stroke="url(#brand)" stroke-width="8" />
+  <circle cx="84" cy="78" r="14" fill="#F8FAFC" />
+  <circle cx="166" cy="74" r="12" fill="#F8FAFC" />
+  <path d="M98 110c0-8 6.5-14.5 14.5-14.5S127 102 127 110v8H98v-8Z" fill="#F8FAFC" />
+  <path d="M150 106c0-6.5 5.5-12 12-12s12 5.5 12 12v6h-24v-6Z" fill="#F8FAFC" />
+  <path d="M82 124c18-20 46-32 76-32s58 12 76 32" fill="none" stroke="url(#grid)" stroke-width="4" opacity="0.55" />
+  <circle cx="128" cy="128" r="68" fill="none" stroke="url(#grid)" stroke-width="2" opacity="0.18" />
+  <path d="M56 130c30-38 70-56 108-56 32 0 62 12 90 36" fill="none" stroke="#22D3EE" stroke-width="4" opacity="0.18" stroke-linecap="round" />
+  <path d="M48 168c22-36 56-56 92-56 34 0 66 18 88 48" fill="none" stroke="#8B5CF6" stroke-width="4" opacity="0.14" stroke-linecap="round" />
+  <ellipse cx="128" cy="112" rx="88" ry="90" fill="none" stroke="url(#brand)" stroke-width="6" opacity="0.18" />
 </svg>
 `;
 
 const logoTransparentSvg = `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="StrangerVerse transparent logo">
   <defs>
-    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="brand" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#7C3AED" />
       <stop offset="45%" stop-color="#8B5CF6" />
       <stop offset="100%" stop-color="#22D3EE" />
     </linearGradient>
-    <radialGradient id="glow" cx="50%" cy="40%" r="80%">
-      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.22" />
+    <radialGradient id="glow" cx="50%" cy="40%" r="85%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.16" />
       <stop offset="100%" stop-color="#090B17" stop-opacity="0" />
     </radialGradient>
+    <linearGradient id="grid" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8FAFC" stop-opacity="0.14" />
+      <stop offset="100%" stop-color="#F8FAFC" stop-opacity="0.04" />
+    </linearGradient>
   </defs>
-  <circle cx="128" cy="128" r="100" fill="url(#glow)" />
-  <path d="M68 76c0-18 15-32 33-32h54c18 0 33 14 33 32v36c0 18-15 32-33 32H144l-14 16a8 8 0 0 1-12-1l-14-15H101c-18 0-33-14-33-32V76Z" fill="#111827" stroke="url(#g)" stroke-width="8" />
-  <circle cx="98" cy="104" r="18" fill="#F8FAFC" />
-  <circle cx="158" cy="96" r="16" fill="#F8FAFC" />
-  <path d="M102 146c0-24 20-44 44-44s44 20 44 44v18H102v-18Z" fill="#F8FAFC" fill-opacity="0.16" />
-  <ellipse cx="128" cy="126" rx="84" ry="86" fill="none" stroke="url(#g)" stroke-width="8" opacity="0.28" />
+  <circle cx="128" cy="128" r="96" fill="url(#glow)" />
+  <path d="M62 92c0-18 15-32 32-32h68c17 0 32 14 32 32v44c0 18-15 32-32 32h-18l-14 16a8 8 0 0 1-12 0l-14-16H94c-17 0-32-14-32-32V92Z" fill="#111827" stroke="url(#brand)" stroke-width="8" />
+  <circle cx="84" cy="78" r="14" fill="#F8FAFC" />
+  <circle cx="166" cy="74" r="12" fill="#F8FAFC" />
+  <path d="M98 110c0-8 6.5-14.5 14.5-14.5S127 102 127 110v8H98v-8Z" fill="#F8FAFC" />
+  <path d="M150 106c0-6.5 5.5-12 12-12s12 5.5 12 12v6h-24v-6Z" fill="#F8FAFC" />
+  <path d="M82 124c18-20 46-32 76-32s58 12 76 32" fill="none" stroke="url(#grid)" stroke-width="4" opacity="0.55" />
+  <circle cx="128" cy="128" r="68" fill="none" stroke="url(#grid)" stroke-width="2" opacity="0.18" />
+  <path d="M56 130c30-38 70-56 108-56 32 0 62 12 90 36" fill="none" stroke="#22D3EE" stroke-width="4" opacity="0.18" stroke-linecap="round" />
+  <path d="M48 168c22-36 56-56 92-56 34 0 66 18 88 48" fill="none" stroke="#8B5CF6" stroke-width="4" opacity="0.14" stroke-linecap="round" />
+  <ellipse cx="128" cy="112" rx="88" ry="90" fill="none" stroke="url(#brand)" stroke-width="6" opacity="0.18" />
 </svg>
 `;
 
@@ -157,14 +169,15 @@ const splashScreen = `<?xml version="1.0" encoding="UTF-8"?>
   </defs>
   <rect width="1280" height="720" fill="url(#bg)" />
   <circle cx="640" cy="340" r="220" fill="rgba(56, 189, 248, 0.12)" />
-  <circle cx="680" cy="280" r="180" fill="rgba(139, 92, 246, 0.1)" />
-  <g transform="translate(520 210)">
+  <circle cx="680" cy="280" r="150" fill="rgba(139, 92, 246, 0.1)" />
+  <g transform="translate(520 200)">
     <path d="M84 44c0-18 14-32 32-32h40c18 0 32 14 32 32v30c0 18-14 32-32 32H164l-12 14a8 8 0 0 1-13-2l-8-12H112c-18 0-32-14-32-32V74Z" fill="#111827" stroke="url(#brand)" stroke-width="9" />
     <circle cx="104" cy="84" r="18" fill="#F8FAFC" />
     <circle cx="148" cy="78" r="16" fill="#F8FAFC" />
+    <path d="M96 110c8-8 18-12 28-12s20 4 28 12" fill="none" stroke="#22D3EE" stroke-width="4" stroke-linecap="round" opacity="0.8" />
   </g>
-  <text x="640" y="520" fill="#F8FAFC" font-family="Inter, system-ui, sans-serif" font-size="58" font-weight="700" text-anchor="middle">StrangerVerse</text>
-  <text x="640" y="580" fill="#94A3B8" font-family="Inter, system-ui, sans-serif" font-size="26" text-anchor="middle">A World of Strangers</text>
+  <text x="640" y="520" fill="#F8FAFC" font-family="Inter, system-ui, sans-serif" font-size="58" font-weight="700" text-anchor="middle" letter-spacing="0.04em">StrangerVerse</text>
+  <text x="640" y="580" fill="#94A3B8" font-family="Inter, system-ui, sans-serif" font-size="26" text-anchor="middle" letter-spacing="0.12em">A World of Strangers</text>
 </svg>
 `;
 

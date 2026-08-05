@@ -12,12 +12,13 @@
   </defs>
   <rect width="1280" height="720" fill="url(#bg)" />
   <circle cx="640" cy="340" r="220" fill="rgba(56, 189, 248, 0.12)" />
-  <circle cx="680" cy="280" r="180" fill="rgba(139, 92, 246, 0.1)" />
-  <g transform="translate(520 210)">
+  <circle cx="680" cy="280" r="150" fill="rgba(139, 92, 246, 0.1)" />
+  <g transform="translate(520 200)">
     <path d="M84 44c0-18 14-32 32-32h40c18 0 32 14 32 32v30c0 18-14 32-32 32H164l-12 14a8 8 0 0 1-13-2l-8-12H112c-18 0-32-14-32-32V74Z" fill="#111827" stroke="url(#brand)" stroke-width="9" />
     <circle cx="104" cy="84" r="18" fill="#F8FAFC" />
     <circle cx="148" cy="78" r="16" fill="#F8FAFC" />
+    <path d="M96 110c8-8 18-12 28-12s20 4 28 12" fill="none" stroke="#22D3EE" stroke-width="4" stroke-linecap="round" opacity="0.8" />
   </g>
-  <text x="640" y="520" fill="#F8FAFC" font-family="Inter, system-ui, sans-serif" font-size="58" font-weight="700" text-anchor="middle">StrangerVerse</text>
-  <text x="640" y="580" fill="#94A3B8" font-family="Inter, system-ui, sans-serif" font-size="26" text-anchor="middle">A World of Strangers</text>
+  <text x="640" y="520" fill="#F8FAFC" font-family="Inter, system-ui, sans-serif" font-size="58" font-weight="700" text-anchor="middle" letter-spacing="0.04em">StrangerVerse</text>
+  <text x="640" y="580" fill="#94A3B8" font-family="Inter, system-ui, sans-serif" font-size="26" text-anchor="middle" letter-spacing="0.12em">A World of Strangers</text>
 </svg>

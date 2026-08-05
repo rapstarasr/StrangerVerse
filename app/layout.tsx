@@ -9,7 +9,7 @@ const structuredData = {
       "@type": "Organization",
       name: "StrangerVerse",
       url: "https://www.strangerverse.online",
-      logo: "https://www.strangerverse.online/logo.png",
+      logo: "https://www.strangerverse.online/logo.svg",
     },
     {
       "@type": "WebSite",
@@ -28,12 +28,12 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.strangerverse.online"),
 
   title: {
-    default: "StrangerVerse – Anonymous global chat for text, voice and video",
+    default: "StrangerVerse – Premium anonymous global chat",
     template: "%s | StrangerVerse",
   },
 
   description:
-    "StrangerVerse is an anonymous chat platform for text, voice, and video, with instant guest access and privacy-first design.",
+    "StrangerVerse is a premium anonymous chat experience connecting strangers worldwide.",
 
   keywords: [
     "StrangerVerse",
@@ -81,9 +81,9 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "StrangerVerse – Anonymous global anonymous chat for text, voice and video",
+    title: "StrangerVerse – Premium anonymous global chat",
     description:
-      "A premium global anonymous chat experience for strangers who want privacy and connection.",
+      "A premium anonymous chat experience connecting strangers worldwide.",
     url: "https://www.strangerverse.online",
     siteName: "StrangerVerse",
     locale: "en_US",
@@ -100,9 +100,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "StrangerVerse – Anonymous global anonymous chat for text, voice and video",
+    title: "StrangerVerse – Premium anonymous global chat",
     description:
-      "A premium global anonymous chat experience for strangers who want privacy and connection.",
+      "A premium anonymous chat experience connecting strangers worldwide.",
     images: ["/og-image.svg"],
     creator: "@StrangerVerse",
   },
