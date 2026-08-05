@@ -81,9 +81,9 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "StrangerVerse – Anonymous global chat for text, voice and video",
+    title: "StrangerVerse – Anonymous global anonymous chat for text, voice and video",
     description:
-      "Start anonymous text, voice, or video chat instantly with no signup required.",
+      "A premium global anonymous chat experience for strangers who want privacy and connection.",
     url: "https://www.strangerverse.online",
     siteName: "StrangerVerse",
     locale: "en_US",
@@ -100,16 +100,16 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "StrangerVerse – Anonymous global chat for text, voice and video",
+    title: "StrangerVerse – Anonymous global anonymous chat for text, voice and video",
     description:
-      "Start anonymous text, voice, or video chat instantly with no signup required.",
+      "A premium global anonymous chat experience for strangers who want privacy and connection.",
     images: ["/og-image.svg"],
     creator: "@StrangerVerse",
   },
 };
 
 export const viewport = {
-  themeColor: "#050816",
+  themeColor: "#090B17",
 };
 
 export default function RootLayout({

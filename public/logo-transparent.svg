@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="StrangerVerse logo">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="StrangerVerse transparent logo">
   <defs>
     <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#7C3AED" />
@@ -11,12 +11,10 @@
       <stop offset="100%" stop-color="#090B17" stop-opacity="0" />
     </radialGradient>
   </defs>
-  <rect width="256" height="256" rx="48" fill="#090B17" />
   <circle cx="128" cy="128" r="100" fill="url(#glow)" />
   <path d="M68 76c0-18 15-32 33-32h54c18 0 33 14 33 32v36c0 18-15 32-33 32H144l-14 16a8 8 0 0 1-12-1l-14-15H101c-18 0-33-14-33-32V76Z" fill="#111827" stroke="url(#g)" stroke-width="8" />
   <circle cx="98" cy="104" r="18" fill="#F8FAFC" />
   <circle cx="158" cy="96" r="16" fill="#F8FAFC" />
   <path d="M102 146c0-24 20-44 44-44s44 20 44 44v18H102v-18Z" fill="#F8FAFC" fill-opacity="0.16" />
   <ellipse cx="128" cy="126" rx="84" ry="86" fill="none" stroke="url(#g)" stroke-width="8" opacity="0.28" />
-  <path d="M52 54c40-28 102-28 142 0" fill="none" stroke="#38BDF8" stroke-width="6" opacity="0.22" stroke-linecap="round" />
 </svg>
